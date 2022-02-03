@@ -5,7 +5,10 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <!-- <link href="assets/fonts/css/all.min.css" rel="stylesheet"> -->
+
     <title>POS System(bootsrap)</title>
+    <!-- https://kavindumihiranga.github.io/PosSystem/ -->
 </head>
 <body>
 <!--navbar-->
@@ -19,10 +22,10 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="">Customer</a></li>
-            <li class="nav-item"><a class="nav-link" href="">Item</a></li>
-            <li class="nav-item"><a class="nav-link" href="">Order</a></li>
+            <li class="nav-item" id="home"><a class="nav-link" id="linkHome" href="#">Home</a></li>
+            <li class="nav-item" id="customer" ><a class="nav-link" id="linkCustomer" href="#">Customer</a></li>
+            <li class="nav-item" id="item" ><a class="nav-link" id="linkItem" href="#">Item</a></li>
+            <li class="nav-item" id="order"><a class="nav-link" id="linkOrder" href="#">Order</a></li>
 
             <li class="nav-item"><a class="nav-link mx-5" href="">Sign In</a></li>
             <li class="nav-item"><a class="nav-link " href="">Log Out</a></li>
@@ -34,8 +37,90 @@
 </nav>
 
 <!--head-->
+
+
+<section class="container mt-5" id="homeContent">
+    <section class="row mt-2">
+        <div class="col-12 col-lg-7 px-0">
+            <div class="carousel slide" data-bs-ride="carousel" id="carouselExampleCaptions">
+                <div class="carousel-indicators">
+                    <button aria-current="true" aria-label="Slide 1" class="active" data-bs-slide-to="0"
+                            data-bs-target="#carouselExampleCaptions" type="button"></button>
+                    <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleCaptions"
+                            type="button"></button>
+                    <button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#carouselExampleCaptions"
+                            type="button"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img alt="..." class="d-block w-100" src="assets/images/image1.jpg">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img alt="..." class="d-block w-100" src="assets/images/image2.jpg">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img alt="..." class="d-block w-100" src="assets/images/image3.jpg">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleCaptions"
+                        type="button">
+                    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleCaptions"
+                        type="button">
+                    <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="card mx-2" style="height: 15rem; width: 10rem;">
+            <img src="assets/images/customer.png" class="card-img-top" alt="...">
+            <!-- <i class="fas fa-users"></i> -->
+            <div class="card-body">
+              <h5 class="card-title">All Customers</h5>
+              <p class="card-text">820</p>
+            </div>
+        </div>
+
+        <div class="card mx-2 "  style="height: 15rem; width: 10rem;">
+            <img src="assets/images/items.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">All Item</h5>
+              <p class="card-text">520</p>
+            </div>
+        </div>
+
+        <div class="card mx-2" style="height: 15rem; width: 10rem;">
+            <img src="assets/images/order.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">All order</h5>
+              <p class="card-text">235</p>
+            </div>
+        </div>
+
+
+    </section>
+    </section>
+</section>
+
+
 <br>
-<div class="container bg-light">
+<!-- customer -->
+<div class="container bg-light" id="customerContent" >
     <div class="row">
         <h1 class="bg-light text-center shadow text-info">Customer</h1>
         <div class="col-10">
@@ -48,22 +133,22 @@
             </div>
             <form>
                 <div class="mb-3 col-6">
-                    <label class="form-label" for="customerId">Customer Id</label>
-                    <input class="form-control" id="customerId" placeholder="input Customer Id" type="text">
+                    <label class="form-label" for="txtCustomerId">Customer Id</label>
+                    <input class="form-control" id="txtCustomerId" placeholder="input Customer Id" type="text">
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label" for="customerName">Customer Name</label>
-                    <input class="form-control" id="customerName" placeholder="input Customer Name" type="text">
+                    <label class="form-label" for="txtCustomerName">Customer Name</label>
+                    <input class="form-control" id="txtCustomerName" placeholder="input Customer Name" type="text">
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label" for="customerAddress">Customer Address</label>
-                    <input class="form-control" id="customerAddress" placeholder="input Customer Address" type="text">
+                    <label class="form-label" for="txtCustomerAddress">Customer Address</label>
+                    <input class="form-control" id="txtCustomerAddress" placeholder="input Customer Address" type="text">
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label" for="customerSalary">Customer Salary</label>
-                    <input class="form-control" id="customerSalary" placeholder="input Customer Salary" type="number">
+                    <label class="form-label" for="txtCustomerTP">Customer PhoneNo</label>
+                    <input class="form-control" id="txtCustomerTP" placeholder="input Customer Salary" type="text">
                 </div>
-                <button class="btn btn-outline-primary" type="submit">Add</button>
+                <button id="btnAddCustomer" class="btn btn-outline-primary" type="submit">Add</button>
                 <button class="btn btn-outline-success" type="submit">Update</button>
                 <button class="btn btn-outline-danger" type="submit">Delete</button>
             </form>
@@ -78,8 +163,8 @@
             <th scope="col">Phone No</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
+        <tbody id="custTable">
+        <!-- <tr>
             <th scope="row">1</th>
             <td>Mark</td>
             <td>Otto</td>
@@ -95,14 +180,15 @@
             <th scope="row">3</th>
             <td colspan="2">Larry the Bird</td>
             <td>@twitter</td>
-        </tr>
+        </tr> -->
         </tbody>
     </table>
 
 </div>
 
 <br><br>
-<div class="container bg-light">
+<!-- item -->
+<div class="container bg-light" id="itemContent">
     <div class="row">
         <h1 class="bg-light text-center shadow text-info">Item</h1>
         <div class="col-10">
@@ -116,22 +202,22 @@
             </div>
             <form>
                 <div class="mb-3 col-6">
-                    <label class="form-label" for="itemCode">Item Code</label>
-                    <input class="form-control" id="itemCode" placeholder="input Item Code" type="text">
+                    <label class="form-label" for="txtItemCode">Item Code</label>
+                    <input class="form-control" id="txtItemCode" placeholder="input Item Code" type="text">
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label" for="itemName">Item Name</label>
-                    <input class="form-control" id="itemName" placeholder="input Item Name" type="text">
+                    <label class="form-label" for="txtItemName">Item Name</label>
+                    <input class="form-control" id="txtItemName" placeholder="input Item Name" type="text">
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label" for="itemPrice">Item Price</label>
-                    <input class="form-control" id="itemPrice" placeholder="input Item Price" type="text">
+                    <label class="form-label" for="txtItemPrice">Item Price</label>
+                    <input class="form-control" id="txtItemPrice" placeholder="input Item Price" type="text">
                 </div>
                 <div class="mb-3 col-6">
-                    <label class="form-label" for="itemQty">Item Qty</label>
-                    <input class="form-control" id="itemQty" placeholder="input Item Qty" type="number">
+                    <label class="form-label" for="txtItemQty">Item Qty</label>
+                    <input class="form-control" id="txtItemQty" placeholder="input Item Qty" type="number">
                 </div>
-                <button class="btn btn-outline-primary" type="submit">Add</button>
+                <button id="btnAddItem" class="btn btn-outline-primary" type="submit">Add</button>
                 <button class="btn btn-outline-success" type="submit">Update</button>
                 <button class="btn btn-outline-danger" type="submit">Delete</button>
             </form>
@@ -146,8 +232,8 @@
             <th scope="col">Price</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
+        <tbody id="itemTable">
+        <!-- <tr>
             <th scope="row">1</th>
             <td>Mark</td>
             <td>Otto</td>
@@ -163,14 +249,14 @@
             <th scope="row">3</th>
             <td colspan="2">Larry the Bird</td>
             <td>@twitter</td>
-        </tr>
+        </tr> -->
         </tbody>
     </table>
 </div>
 <br><br>
 
 <!--order-->
-<div class="container bg-light">
+<div class="container bg-light" id="orderContent">
     <div class="row">
         <h1 class="bg-light shadow text-center text-info">Order</h1>
 
@@ -250,7 +336,7 @@
 
     </div>
     <br>
-    <table class="table mt-3 table-hover">
+    <table id="tables" class="table mt-3 table-hover">
         <thead class="bg-dark text-light bg-opacity-75">
         <tr>
             <th scope="col">Item Code</th>
@@ -291,7 +377,76 @@
 
 </div>
 
-<br><br><br>
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+
+<script>
+    $("#homeContent").css("display","block");
+    $("#customerContent").css("display","none");
+    $("#itemContent").css("display","none");
+    $("#orderContent").css("display","none");
+
+
+    $("#linkCustomer").click(function (){
+        $("#customerContent").css("display","block");
+        $("#homeContent").css("display","none");
+        $("#itemContent").css("display","none");
+        $("#orderContent").css("display","none");
+
+
+    });
+
+    $("#linkItem").click(function (){
+        $("#itemContent").css("display","block");
+        $("#customerContent").css("display","none");
+        $("#homeContent").css("display","none");
+        $("#orderContent").css("display","none");
+
+
+    });
+
+    $("#linkOrder").click(function (){
+        $("#orderContent").css("display","block");
+        $("#customerContent").css("display","none");
+        $("#homeContent").css("display","none");
+        $("#itemContent").css("display","none");
+
+
+    });
+
+
+    $("#linkHome").click(function (){
+        $("#homeContent").css("display","block");
+        $("#itemContent").css("display","none");
+        $("#customerContent").css("display","none");
+        $("#orderContent").css("display","none");
+
+    });
+
+$("#btnAddCustomer").click(function(){
+   let custId = $("#txtCustomerId").val();
+   let custName = $("#txtCustomerName").val();
+   let custAddress = $("#txtCustomerAddress").val();
+   let custSalary = $("#txtCustomerTP").val();
+
+   let row = `<tr><td>${custId}</td><td>${custName}</td><td>${custAddress}</td><td>${custSalary}</td></tr>`;
+   $("#custTable").append(row);
+
+
+})
+
+$("#btnAddItem").click(function(){
+   let itemId = $("#txtItemCode").val();
+   let itemName = $("#txtItemName").val();
+   let itemAddress = $("#txtItemPrice").val();
+   let itemSalary = $("#txtItemQty").val();
+
+   let row = `<tr><td>${itemId}</td><td>${itemName}</td><td>${itemAddress}</td><td>${itemSalary}</td></tr>`;
+   $("#itemTable").append(row);
+
+
+})
+
+</script>
 </body>
 </html>
