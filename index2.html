@@ -444,68 +444,98 @@
  $("#txtCustomerTP").keydown(function(event){
     if(event.key == "Enter"){
         // $("#txtCustomerName").focus();
+
+        $("#btnAddCustomer").click(function(){
+
+        $("#custTable>tr").off("click");
+
+        let custId = $("#txtCustomerId").val();
+        let custName = $("#txtCustomerName").val();
+        let custAddress = $("#txtCustomerAddress").val();
+        let custTP = $("#txtCustomerTP").val();
+
+let row = `<tr><td>${custId}</td><td>${custName}</td><td>${custAddress}</td><td>${custTP}</td></tr>`;
+$("#custTable").append(row);
+
+$("#custTable>tr").click(function(){
+    let cusID = $(this).children(":eq(0)").text(); 
+    let cusName = $(this).children(":eq(1)").text();
+    let cusAddress = $(this).children(":eq(2)").text();
+    let cusTP = $(this).children(":eq(3)").text();
+
+        $("#txtCustomerId").val(cusID);
+        $("#txtCustomerName").val(cusName);
+        $("#txtCustomerAddress").val(cusAddress);
+        $("#txtCustomerTP").val(cusTP);
+
+    });
+
+
+    });
+
        
     }
     });
+    
 
-$("#btnAddCustomer").click(function(){
+// $("#btnAddCustomer").click(function(){
 
-    $("#custTable>tr").off("click");
+//     $("#custTable>tr").off("click");
 
-   let custId = $("#txtCustomerId").val();
-   let custName = $("#txtCustomerName").val();
-   let custAddress = $("#txtCustomerAddress").val();
-   let custTP = $("#txtCustomerTP").val();
+//    let custId = $("#txtCustomerId").val();
+//    let custName = $("#txtCustomerName").val();
+//    let custAddress = $("#txtCustomerAddress").val();
+//    let custTP = $("#txtCustomerTP").val();
 
-   let row = `<tr><td>${custId}</td><td>${custName}</td><td>${custAddress}</td><td>${custTP}</td></tr>`;
-   $("#custTable").append(row);
+//    let row = `<tr><td>${custId}</td><td>${custName}</td><td>${custAddress}</td><td>${custTP}</td></tr>`;
+//    $("#custTable").append(row);
 
-    $("#custTable>tr").click(function(){
-        let cusID = $(this).children(":eq(0)").text(); 
-        let cusName = $(this).children(":eq(1)").text();
-        let cusAddress = $(this).children(":eq(2)").text();
-        let cusTP = $(this).children(":eq(3)").text();
+//     $("#custTable>tr").click(function(){
+//         let cusID = $(this).children(":eq(0)").text(); 
+//         let cusName = $(this).children(":eq(1)").text();
+//         let cusAddress = $(this).children(":eq(2)").text();
+//         let cusTP = $(this).children(":eq(3)").text();
 
-            $("#txtCustomerId").val(cusID);
-            $("#txtCustomerName").val(cusName);
-            $("#txtCustomerAddress").val(cusAddress);
-            $("#txtCustomerTP").val(cusTP);
+//             $("#txtCustomerId").val(cusID);
+//             $("#txtCustomerName").val(cusName);
+//             $("#txtCustomerAddress").val(cusAddress);
+//             $("#txtCustomerTP").val(cusTP);
 
-    });
-
-
-});
+//     });
 
 
-
-$("#btnAddItem").click(function(){
-
-    $("#itemTable>tr").off("click");
-
-   let itemId = $("#txtItemCode").val();
-   let itemName = $("#txtItemName").val();
-   let itemPrice = $("#txtItemPrice").val();
-   let itemQty = $("#txtItemQty").val();
-
-   let row = `<tr><td>${itemId}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQty}</td></tr>`;
-   $("#itemTable").append(row);
+// });
 
 
 
-   $("#itemTable>tr").click(function(){
-        let itemsId = $(this).children(":eq(0)").text(); 
-        let itemsName = $(this).children(":eq(1)").text();
-        let itemsPrice = $(this).children(":eq(2)").text();
-        let itemsQty = $(this).children(":eq(3)").text();
+// $("#btnAddItem").click(function(){
 
-            $("#txtItemCode").val(itemsId);
-            $("#txtItemName").val(itemsName);
-            $("#txtItemPrice").val(itemsPrice);
-            $("#txtItemQty").val(itemsQty);
+//     $("#itemTable>tr").off("click");
 
-    });
+//    let itemId = $("#txtItemCode").val();
+//    let itemName = $("#txtItemName").val();
+//    let itemPrice = $("#txtItemPrice").val();
+//    let itemQty = $("#txtItemQty").val();
 
-});
+//    let row = `<tr><td>${itemId}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQty}</td></tr>`;
+//    $("#itemTable").append(row);
+
+
+
+//    $("#itemTable>tr").click(function(){
+//         let itemsId = $(this).children(":eq(0)").text(); 
+//         let itemsName = $(this).children(":eq(1)").text();
+//         let itemsPrice = $(this).children(":eq(2)").text();
+//         let itemsQty = $(this).children(":eq(3)").text();
+
+//             $("#txtItemCode").val(itemsId);
+//             $("#txtItemName").val(itemsName);
+//             $("#txtItemPrice").val(itemsPrice);
+//             $("#txtItemQty").val(itemsQty);
+
+//     });
+
+// });
 
 $("#txtItemCode").keydown(function(event){
     if(event.key == "Enter"){
@@ -528,6 +558,35 @@ $("#txtItemCode").keydown(function(event){
  $("#txtItemQty").keydown(function(event){
     if(event.key == "Enter"){
         // $("#txtCustomerName").focus();
+
+        $("#btnAddItem").click(function(){
+
+        $("#itemTable>tr").off("click");
+
+        let itemId = $("#txtItemCode").val();
+        let itemName = $("#txtItemName").val();
+        let itemPrice = $("#txtItemPrice").val();
+        let itemQty = $("#txtItemQty").val();
+
+        let row = `<tr><td>${itemId}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQty}</td></tr>`;
+        $("#itemTable").append(row);
+
+
+
+        $("#itemTable>tr").click(function(){
+            let itemsId = $(this).children(":eq(0)").text(); 
+            let itemsName = $(this).children(":eq(1)").text();
+            let itemsPrice = $(this).children(":eq(2)").text();
+            let itemsQty = $(this).children(":eq(3)").text();
+
+                $("#txtItemCode").val(itemsId);
+                $("#txtItemName").val(itemsName);
+                $("#txtItemPrice").val(itemsPrice);
+                $("#txtItemQty").val(itemsQty);
+
+        });
+
+        });
        
     }
     });
