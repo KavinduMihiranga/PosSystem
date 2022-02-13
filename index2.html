@@ -501,9 +501,12 @@ $("#custTable>tr").click(function(){
         if (regExCusID.test(input)) {
             $("#txtCustomerId").css('border', '2px solid green');
             $("#errorId").text("");
+            $("#btnAddCustomer").prop("disabled",false);
         } else {
             $("#txtCustomerId").css('border', '2px solid red');
             $("#errorId").text("Wrong format : C00-001");
+            $("#btnAddCustomer").prop("disabled",true);
+
         }
     });
 
@@ -514,9 +517,13 @@ $("#custTable>tr").click(function(){
         if (regExCusName.test(input)) {
             $("#txtCustomerName").css('border', '2px solid green');
             $("#errorName").text("");
+            $("#btnAddCustomer").prop("disabled",false);
+
         } else {
             $("#txtCustomerName").css('border', '2px solid red');
             $("#errorName").text("Wrong format : Type Your Name");
+            $("#btnAddCustomer").prop("disabled",true);
+
         }
     });
 
@@ -527,9 +534,13 @@ $("#custTable>tr").click(function(){
         if (regExCusAddress.test(input)) {
             $("#txtCustomerAddress").css('border', '2px solid green');
             $("#errorAddress").text("");
+            $("#btnAddCustomer").prop("disabled",false);
+
         } else {
             $("#txtCustomerAddress").css('border', '2px solid red');
             $("#errorAddress").text("Wrong format : Type Your Address");
+            $("#btnAddCustomer").prop("disabled",true);
+
         }
     });
 
@@ -540,9 +551,13 @@ $("#custTable>tr").click(function(){
         if (regExCusPhoneNo.test(input)) {
             $("#txtCustomerTP").css('border', '2px solid green');
             $("#errorTp").text("");
+            $("#btnAddCustomer").prop("disabled",false);
+
         } else {
             $("#txtCustomerTP").css('border', '2px solid red');
             $("#errorTp").text("Wrong format : Type Your Phone No");
+            $("#btnAddCustomer").prop("disabled",true);
+
         }
     });
 
@@ -609,8 +624,7 @@ $("#custTable>tr").click(function(){
 //     });
 
 // });
-
-$("#txtItemCode").keydown(function(event){
+ $("#txtItemCode").keydown(function(event){
     if(event.key == "Enter"){
         $("#txtItemName").focus();
       
@@ -672,9 +686,13 @@ $("#txtItemCode").keyup(function () {
     if (regExItemCode.test(input)) {
         $("#txtItemCode").css('border', '2px solid green');
         $("#errorCode").text("");
+        $("#btnAddItem").prop("disabled",false);
+
     } else {
         $("#txtItemCode").css('border', '2px solid red');
         $("#errorCode").text("Wrong format : I00-001");
+        $("#btnAddItem").prop("disabled",true);
+
     }
 });
 
@@ -685,9 +703,13 @@ $("#txtItemName").keyup(function () {
     if (regExItemName.test(input)) {
         $("#txtItemName").css('border', '2px solid green');
         $("#errorItemName").text("");
+        $("#btnAddItem").prop("disabled",false);
+
     } else {
         $("#txtItemName").css('border', '2px solid red');
         $("#errorItemName").text("Wrong format : Type Item Name");
+        $("#btnAddItem").prop("disabled",true);
+
     }
 });
 
@@ -698,9 +720,13 @@ $("#txtItemPrice").keyup(function () {
     if (regExItemPrice.test(input)) {
         $("#txtItemPrice").css('border', '2px solid green');
         $("#errorPrice").text("");
+        $("#btnAddItem").prop("disabled",false);
+
     } else {
         $("#txtItemPrice").css('border', '2px solid red');
         $("#errorPrice").text("Wrong format : Type Item Name");
+        $("#btnAddItem").prop("disabled",true);
+
     }
 });
 
@@ -711,12 +737,19 @@ $("#txtItemQty").keyup(function () {
     if (regExItemPrice.test(input)) {
         $("#txtItemQty").css('border', '2px solid green');
         $("#errorQty").text("");
+        $("#btnAddItem").prop("disabled",false);
+
     } else {
         $("#txtItemQty").css('border', '2px solid red');
         $("#errorQty").text("Wrong format : Type Item Name");
+        $("#btnAddItem").prop("disabled",true);
+
     }
 });
 
+
+
+  
 </script>
 </body>
 </html>
