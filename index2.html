@@ -156,7 +156,7 @@
 
                 </div>
                 <button id="btnAddCustomer" class="btn btn-outline-primary" type="submit">Add</button>
-                <button class="btn btn-outline-success" type="submit">Update</button>
+                <button id="btnUpdateCustomer" class="btn btn-outline-success" type="submit">Update</button>
                 <button class="btn btn-outline-danger" type="submit">Delete</button>
             </form>
         </div>
@@ -233,7 +233,7 @@
 
                 </div>
                 <button id="btnAddItem" class="btn btn-outline-primary" type="submit">Add</button>
-                <button class="btn btn-outline-success" type="submit">Update</button>
+                <button id="btnUpdateItem" class="btn btn-outline-success" type="submit">Update</button>
                 <button class="btn btn-outline-danger" type="submit">Delete</button>
             </form>
         </div>
@@ -562,7 +562,46 @@ $("#custTable>tr").click(function(){
     });
 
    
+   
+    $("#btnUpdateCustomer").click(function(){
 
+    //     $("#custTable>tr").click(function(){
+    //     let cusID = $(this).children(":eq(0)").text(); 
+    //     let cusName = $(this).children(":eq(1)").text();
+    //     let cusAddress = $(this).children(":eq(2)").text();
+    //     let cusTP = $(this).children(":eq(3)").text();
+
+    //     $("#txtCustomerId").val(cusID);
+    //     $("#txtCustomerName").val(cusName);
+    //     $("#txtCustomerAddress").val(cusAddress);
+    //     $("#txtCustomerTP").val(cusTP);
+
+    // });
+
+        var newCusId=$("#txtCustomerId").val();
+        var newCusName=$("#txtCustomerName").val();
+        var newCusAddress=$("#txtCustomerAddress").val();
+        var newCusTp=$("#txtCustomerTP").val();
+
+        // alert("Do You Want To Update This Customer..? ")
+
+        if (confirm ("Do You Want To Update This Customer..? ")) {
+        
+             $("td:eq(0)").text(newCusId); 
+             $("td:eq(1)").text(newCusName);
+             $("td:eq(2)").text(newCusAddress);
+             $("td:eq(3)").text(newCusTp);
+
+             alert("Update Customer Successfully.!");
+        
+        } else {
+            alert("Cancell Customer Update !");
+         }
+
+     
+        
+        
+    });
     
     
 
@@ -747,7 +786,34 @@ $("#txtItemQty").keyup(function () {
     }
 });
 
+$("#btnUpdateItem").click(function(){
 
+var newItemCode=$("#txtItemCode").val();
+var newItemName=$("#txtItemName").val();
+var newItemPrice=$("#txtItemPrice").val();
+var newItemQty=$("#txtItemQty").val();
+
+
+
+// alert("Do You Want To Update This Item..? ");
+
+
+if (confirm("Do You Want To Update This Item..?")) {
+
+    $("td:eq(0)").text(newItemCode); 
+    $("td:eq(1)").text(newItemName);
+    $("td:eq(2)").text(newItemPrice);
+    $("td:eq(3)").text(newItemQty);
+
+    alert("Update Item Successfully.!");
+
+  } else {
+    alert("Cancel Item Update !");
+
+  }
+
+
+});
 
   
 </script>
