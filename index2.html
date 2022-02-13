@@ -135,18 +135,25 @@
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtCustomerId">Customer Id</label>
                     <input class="form-control" id="txtCustomerId" placeholder="input Customer Id" type="text">
+                    <p><small id="errorId" class="text-danger pl-1"></small></p>
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtCustomerName">Customer Name</label>
                     <input class="form-control" id="txtCustomerName" placeholder="input Customer Name" type="text">
+                    <p><small id="errorName" class="text-danger pl-1"></small></p>
+
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtCustomerAddress">Customer Address</label>
                     <input class="form-control" id="txtCustomerAddress" placeholder="input Customer Address" type="text">
+                    <p><small id="errorAddress" class="text-danger pl-1"></small></p>
+
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtCustomerTP">Customer PhoneNo</label>
                     <input class="form-control" id="txtCustomerTP" placeholder="input Customer Salary" type="text">
+                    <p><small id="errorTp" class="text-danger pl-1"></small></p>
+
                 </div>
                 <button id="btnAddCustomer" class="btn btn-outline-primary" type="submit">Add</button>
                 <button class="btn btn-outline-success" type="submit">Update</button>
@@ -204,18 +211,26 @@
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtItemCode">Item Code</label>
                     <input class="form-control" id="txtItemCode" placeholder="input Item Code" type="text">
+                    <p><small id="errorCode" class="text-danger pl-1"></small></p>
+
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtItemName">Item Name</label>
                     <input class="form-control" id="txtItemName" placeholder="input Item Name" type="text">
+                    <p><small id="errorItemName" class="text-danger pl-1"></small></p>
+
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtItemPrice">Item Price</label>
                     <input class="form-control" id="txtItemPrice" placeholder="input Item Price" type="text">
+                    <p><small id="errorPrice" class="text-danger pl-1"></small></p>
+
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtItemQty">Item Qty</label>
                     <input class="form-control" id="txtItemQty" placeholder="input Item Qty" type="number">
+                    <p><small id="errorQty" class="text-danger pl-1"></small></p>
+
                 </div>
                 <button id="btnAddItem" class="btn btn-outline-primary" type="submit">Add</button>
                 <button class="btn btn-outline-success" type="submit">Update</button>
@@ -475,7 +490,65 @@ $("#custTable>tr").click(function(){
 
        
     }
+  
+
     });
+
+    var regExCusID = /^(C00-)[0-9]{3,4}$/;
+
+    $("#txtCustomerId").keyup(function () {
+        let input = $("#txtCustomerId").val();
+        if (regExCusID.test(input)) {
+            $("#txtCustomerId").css('border', '2px solid green');
+            $("#errorId").text("");
+        } else {
+            $("#txtCustomerId").css('border', '2px solid red');
+            $("#errorId").text("Wrong format : C00-001");
+        }
+    });
+
+    var regExCusName = /^[a-zA-Z ]+$/;
+
+    $("#txtCustomerName").keyup(function () {
+        let input = $("#txtCustomerName").val();
+        if (regExCusName.test(input)) {
+            $("#txtCustomerName").css('border', '2px solid green');
+            $("#errorName").text("");
+        } else {
+            $("#txtCustomerName").css('border', '2px solid red');
+            $("#errorName").text("Wrong format : Type Your Name");
+        }
+    });
+
+    var regExCusAddress = /^[A-Za-z0-9'\.\-\s\,]+$/;
+
+    $("#txtCustomerAddress").keyup(function () {
+        let input = $("#txtCustomerAddress").val();
+        if (regExCusAddress.test(input)) {
+            $("#txtCustomerAddress").css('border', '2px solid green');
+            $("#errorAddress").text("");
+        } else {
+            $("#txtCustomerAddress").css('border', '2px solid red');
+            $("#errorAddress").text("Wrong format : Type Your Address");
+        }
+    });
+
+    var regExCusPhoneNo = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
+
+    $("#txtCustomerTP").keyup(function () {
+        let input = $("#txtCustomerTP").val();
+        if (regExCusPhoneNo.test(input)) {
+            $("#txtCustomerTP").css('border', '2px solid green');
+            $("#errorTp").text("");
+        } else {
+            $("#txtCustomerTP").css('border', '2px solid red');
+            $("#errorTp").text("Wrong format : Type Your Phone No");
+        }
+    });
+
+   
+
+    
     
 
 // $("#btnAddCustomer").click(function(){
@@ -587,9 +660,62 @@ $("#txtItemCode").keydown(function(event){
         });
 
         });
-       
+          
     }
+    
     });
+
+    var regExItemCode = /^(I00-)[0-9]{3,4}$/;
+
+$("#txtItemCode").keyup(function () {
+    let input = $("#txtItemCode").val();
+    if (regExItemCode.test(input)) {
+        $("#txtItemCode").css('border', '2px solid green');
+        $("#errorCode").text("");
+    } else {
+        $("#txtItemCode").css('border', '2px solid red');
+        $("#errorCode").text("Wrong format : I00-001");
+    }
+});
+
+var regExItemName = /^[a-zA-Z ]+$/;
+
+$("#txtItemName").keyup(function () {
+    let input = $("#txtItemName").val();
+    if (regExItemName.test(input)) {
+        $("#txtItemName").css('border', '2px solid green');
+        $("#errorItemName").text("");
+    } else {
+        $("#txtItemName").css('border', '2px solid red');
+        $("#errorItemName").text("Wrong format : Type Item Name");
+    }
+});
+
+var regExItemPrice = /^\d{0,8}(\.\d{1,2})?$/;
+
+$("#txtItemPrice").keyup(function () {
+    let input = $("#txtItemPrice").val();
+    if (regExItemPrice.test(input)) {
+        $("#txtItemPrice").css('border', '2px solid green');
+        $("#errorPrice").text("");
+    } else {
+        $("#txtItemPrice").css('border', '2px solid red');
+        $("#errorPrice").text("Wrong format : Type Item Name");
+    }
+});
+
+var regExItemQty = /^\d{0,8}(\.\d{1,3})?$/;
+
+$("#txtItemQty").keyup(function () {
+    let input = $("#txtItemQty").val();
+    if (regExItemPrice.test(input)) {
+        $("#txtItemQty").css('border', '2px solid green');
+        $("#errorQty").text("");
+    } else {
+        $("#txtItemQty").css('border', '2px solid red');
+        $("#errorQty").text("Wrong format : Type Item Name");
+    }
+});
 
 </script>
 </body>
