@@ -22,10 +22,10 @@
     </button>
     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
         <ul class="navbar-nav">
-            <li class="nav-item" id="home"><a class="nav-link" id="linkHome" href="#">Home</a></li>
-            <li class="nav-item" id="customer" ><a class="nav-link" id="linkCustomer" href="#">Customer</a></li>
-            <li class="nav-item" id="item" ><a class="nav-link" id="linkItem" href="#">Item</a></li>
-            <li class="nav-item" id="order"><a class="nav-link" id="linkOrder" href="#">Order</a></li>
+            <li class="nav-item" id="home"><a class="nav-link" href="#" id="linkHome">Home</a></li>
+            <li class="nav-item" id="customer"><a class="nav-link" href="#" id="linkCustomer">Customer</a></li>
+            <li class="nav-item" id="item"><a class="nav-link" href="#" id="linkItem">Item</a></li>
+            <li class="nav-item" id="order"><a class="nav-link" href="#" id="linkOrder">Order</a></li>
 
             <li class="nav-item"><a class="nav-link mx-5" href="">Sign In</a></li>
             <li class="nav-item"><a class="nav-link " href="">Log Out</a></li>
@@ -88,75 +88,76 @@
         </div>
 
         <div class="card mx-2" style="height: 15rem; width: 10rem;">
-            <img src="assets/images/customer.png" class="card-img-top" alt="...">
+            <img alt="..." class="card-img-top" src="assets/images/customer.png">
             <!-- <i class="fas fa-users"></i> -->
             <div class="card-body">
-              <h5 class="card-title">All Customers</h5>
-              <p class="card-text">820</p>
+                <h5 class="card-title">All Customers</h5>
+                <p class="card-text">820</p>
             </div>
         </div>
 
-        <div class="card mx-2 "  style="height: 15rem; width: 10rem;">
-            <img src="assets/images/items.png" class="card-img-top" alt="...">
+        <div class="card mx-2 " style="height: 15rem; width: 10rem;">
+            <img alt="..." class="card-img-top" src="assets/images/items.png">
             <div class="card-body">
-              <h5 class="card-title">All Item</h5>
-              <p class="card-text">520</p>
+                <h5 class="card-title">All Item</h5>
+                <p class="card-text">520</p>
             </div>
         </div>
 
         <div class="card mx-2" style="height: 15rem; width: 10rem;">
-            <img src="assets/images/order.png" class="card-img-top" alt="...">
+            <img alt="..." class="card-img-top" src="assets/images/order.png">
             <div class="card-body">
-              <h5 class="card-title">All order</h5>
-              <p class="card-text">235</p>
+                <h5 class="card-title">All order</h5>
+                <p class="card-text">235</p>
             </div>
         </div>
 
 
     </section>
-    </section>
+</section>
 </section>
 
 
 <br>
 <!-- customer -->
-<div class="container bg-light" id="customerContent" >
+<div class="container bg-light" id="customerContent">
     <div class="row">
         <h1 class="bg-light text-center shadow text-info">Customer</h1>
         <div class="col-10">
             <div class="col-8 input-group mb-3">
-                <input aria-describedby="basic-addon1" aria-label="Username" class="form-control" placeholder="Username"
+                <input aria-describedby="basic-addon1" aria-label="Username" class="form-control" id="txtCustomerSearchId" placeholder="CustomerID"
                        type="text">
             </div>
             <div class="input-group mb-3 col-2">
-                <button class="btn btn-outline-secondary" id="button-addon1" type="button">Search</button>
+                <button class="btn btn-outline-secondary" id="btnSearch" type="button">Search</button>
             </div>
             <form>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtCustomerId">Customer Id</label>
                     <input class="form-control" id="txtCustomerId" placeholder="input Customer Id" type="text">
-                    <p><small id="errorId" class="text-danger pl-1"></small></p>
+                    <p><small class="text-danger pl-1" id="errorId"></small></p>
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtCustomerName">Customer Name</label>
                     <input class="form-control" id="txtCustomerName" placeholder="input Customer Name" type="text">
-                    <p><small id="errorName" class="text-danger pl-1"></small></p>
+                    <p><small class="text-danger pl-1" id="errorName"></small></p>
 
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtCustomerAddress">Customer Address</label>
-                    <input class="form-control" id="txtCustomerAddress" placeholder="input Customer Address" type="text">
-                    <p><small id="errorAddress" class="text-danger pl-1"></small></p>
+                    <input class="form-control" id="txtCustomerAddress" placeholder="input Customer Address"
+                           type="text">
+                    <p><small class="text-danger pl-1" id="errorAddress"></small></p>
 
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtCustomerTP">Customer PhoneNo</label>
                     <input class="form-control" id="txtCustomerTP" placeholder="input Customer Salary" type="text">
-                    <p><small id="errorTp" class="text-danger pl-1"></small></p>
+                    <p><small class="text-danger pl-1" id="errorTp"></small></p>
 
                 </div>
-                <button id="btnAddCustomer" class="btn btn-outline-primary" type="submit">Add</button>
-                <button id="btnUpdateCustomer" class="btn btn-outline-success" type="submit">Update</button>
+                <button class="btn btn-outline-primary" id="btnAddCustomer" type="submit">Add</button>
+                <button class="btn btn-outline-success" id="btnUpdateCustomer" type="submit">Update</button>
                 <button class="btn btn-outline-danger" type="submit">Delete</button>
             </form>
         </div>
@@ -171,23 +172,6 @@
         </tr>
         </thead>
         <tbody id="custTable">
-        <!-- <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr> -->
         </tbody>
     </table>
 
@@ -201,39 +185,39 @@
         <div class="col-10">
             <div class="col-8 input-group mb-3">
                 <input aria-describedby="basic-addon1" aria-label="Item Code" class="form-control"
-                       placeholder="Item Name"
+                       id="txtSearchItem" placeholder="Item Code"
                        type="text">
             </div>
             <div class="input-group mb-3 col-2">
-                <button class="btn btn-outline-secondary" id="button_search_item" type="button">Search</button>
+                <button class="btn btn-outline-secondary" id="btnSearchItem" type="button">Search</button>
             </div>
             <form>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtItemCode">Item Code</label>
                     <input class="form-control" id="txtItemCode" placeholder="input Item Code" type="text">
-                    <p><small id="errorCode" class="text-danger pl-1"></small></p>
+                    <p><small class="text-danger pl-1" id="errorCode"></small></p>
 
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtItemName">Item Name</label>
                     <input class="form-control" id="txtItemName" placeholder="input Item Name" type="text">
-                    <p><small id="errorItemName" class="text-danger pl-1"></small></p>
+                    <p><small class="text-danger pl-1" id="errorItemName"></small></p>
 
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtItemPrice">Item Price</label>
                     <input class="form-control" id="txtItemPrice" placeholder="input Item Price" type="text">
-                    <p><small id="errorPrice" class="text-danger pl-1"></small></p>
+                    <p><small class="text-danger pl-1" id="errorPrice"></small></p>
 
                 </div>
                 <div class="mb-3 col-6">
                     <label class="form-label" for="txtItemQty">Item Qty</label>
-                    <input class="form-control" id="txtItemQty" placeholder="input Item Qty" type="number">
-                    <p><small id="errorQty" class="text-danger pl-1"></small></p>
+                    <input class="form-control" id="txtItemQty" placeholder="input Item Qty" type="text">
+                    <p><small class="text-danger pl-1" id="errorQty"></small></p>
 
                 </div>
-                <button id="btnAddItem" class="btn btn-outline-primary" type="submit">Add</button>
-                <button id="btnUpdateItem" class="btn btn-outline-success" type="submit">Update</button>
+                <button class="btn btn-outline-primary" id="btnAddItem" type="submit">Add</button>
+                <button class="btn btn-outline-success" id="btnUpdateItem" type="submit">Update</button>
                 <button class="btn btn-outline-danger" type="submit">Delete</button>
             </form>
         </div>
@@ -248,23 +232,6 @@
         </tr>
         </thead>
         <tbody id="itemTable">
-        <!-- <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr> -->
         </tbody>
     </table>
 </div>
@@ -351,7 +318,7 @@
 
     </div>
     <br>
-    <table id="tables" class="table mt-3 table-hover">
+    <table class="table mt-3 table-hover" id="tables">
         <thead class="bg-dark text-light bg-opacity-75">
         <tr>
             <th scope="col">Item Code</th>
@@ -394,103 +361,76 @@
 
 <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
-
+<script src="assets/jsScript/Script.js"></script>
 <script>
-    $("#homeContent").css("display","block");
-    $("#customerContent").css("display","none");
-    $("#itemContent").css("display","none");
-    $("#orderContent").css("display","none");
+    $("#homeContent").css("display", "block");
+    $("#customerContent").css("display", "none");
+    $("#itemContent").css("display", "none");
+    $("#orderContent").css("display", "none");
 
 
-    $("#linkCustomer").click(function (){
-        $("#customerContent").css("display","block");
-        $("#homeContent").css("display","none");
-        $("#itemContent").css("display","none");
-        $("#orderContent").css("display","none");
-
-
-    });
-
-    $("#linkItem").click(function (){
-        $("#itemContent").css("display","block");
-        $("#customerContent").css("display","none");
-        $("#homeContent").css("display","none");
-        $("#orderContent").css("display","none");
+    $("#linkCustomer").click(function () {
+        $("#customerContent").css("display", "block");
+        $("#homeContent").css("display", "none");
+        $("#itemContent").css("display", "none");
+        $("#orderContent").css("display", "none");
 
 
     });
 
-    $("#linkOrder").click(function (){
-        $("#orderContent").css("display","block");
-        $("#customerContent").css("display","none");
-        $("#homeContent").css("display","none");
-        $("#itemContent").css("display","none");
+    $("#linkItem").click(function () {
+        $("#itemContent").css("display", "block");
+        $("#customerContent").css("display", "none");
+        $("#homeContent").css("display", "none");
+        $("#orderContent").css("display", "none");
+
+
+    });
+
+    $("#linkOrder").click(function () {
+        $("#orderContent").css("display", "block");
+        $("#customerContent").css("display", "none");
+        $("#homeContent").css("display", "none");
+        $("#itemContent").css("display", "none");
 
 
     });
 
 
-    $("#linkHome").click(function (){
-        $("#homeContent").css("display","block");
-        $("#itemContent").css("display","none");
-        $("#customerContent").css("display","none");
-        $("#orderContent").css("display","none");
+    $("#linkHome").click(function () {
+        $("#homeContent").css("display", "block");
+        $("#itemContent").css("display", "none");
+        $("#customerContent").css("display", "none");
+        $("#orderContent").css("display", "none");
 
     });
 
- $("#txtCustomerId").keydown(function(event){
-    if(event.key == "Enter"){
-        $("#txtCustomerName").focus();
-      
-    }
+    $("#txtCustomerId").keydown(function (event) {
+        if (event.key == "Enter") {
+            $("#txtCustomerName").focus();
+
+        }
     });
- $("#txtCustomerName").keydown(function(event){
-    if(event.key == "Enter"){
-        $("#txtCustomerAddress").focus();
-      
-    }
+    $("#txtCustomerName").keydown(function (event) {
+        if (event.key == "Enter") {
+            $("#txtCustomerAddress").focus();
+
+        }
     });
- $("#txtCustomerAddress").keydown(function(event){
-    if(event.key == "Enter"){
-        $("#txtCustomerTP").focus();
-       
-    }
+    $("#txtCustomerAddress").keydown(function (event) {
+        if (event.key == "Enter") {
+            $("#txtCustomerTP").focus();
+
+        }
     });
- $("#txtCustomerTP").keydown(function(event){
-    if(event.key == "Enter"){
-        // $("#txtCustomerName").focus();
+    $("#txtCustomerTP").keydown(function (event) {
+        if (event.key == "Enter") {
 
-        $("#btnAddCustomer").click(function(){
-
-        $("#custTable>tr").off("click");
-
-        let custId = $("#txtCustomerId").val();
-        let custName = $("#txtCustomerName").val();
-        let custAddress = $("#txtCustomerAddress").val();
-        let custTP = $("#txtCustomerTP").val();
-
-let row = `<tr><td>${custId}</td><td>${custName}</td><td>${custAddress}</td><td>${custTP}</td></tr>`;
-$("#custTable").append(row);
-
-$("#custTable>tr").click(function(){
-    let cusID = $(this).children(":eq(0)").text(); 
-    let cusName = $(this).children(":eq(1)").text();
-    let cusAddress = $(this).children(":eq(2)").text();
-    let cusTP = $(this).children(":eq(3)").text();
-
-        $("#txtCustomerId").val(cusID);
-        $("#txtCustomerName").val(cusName);
-        $("#txtCustomerAddress").val(cusAddress);
-        $("#txtCustomerTP").val(cusTP);
-
-    });
+            saveCustomer();
 
 
-    });
+        }
 
-       
-    }
-  
 
     });
 
@@ -501,11 +441,11 @@ $("#custTable>tr").click(function(){
         if (regExCusID.test(input)) {
             $("#txtCustomerId").css('border', '2px solid green');
             $("#errorId").text("");
-            $("#btnAddCustomer").prop("disabled",false);
+            $("#btnAddCustomer").prop("disabled", false);
         } else {
             $("#txtCustomerId").css('border', '2px solid red');
             $("#errorId").text("Wrong format : C00-001");
-            $("#btnAddCustomer").prop("disabled",true);
+            $("#btnAddCustomer").prop("disabled", true);
 
         }
     });
@@ -517,12 +457,12 @@ $("#custTable>tr").click(function(){
         if (regExCusName.test(input)) {
             $("#txtCustomerName").css('border', '2px solid green');
             $("#errorName").text("");
-            $("#btnAddCustomer").prop("disabled",false);
+            $("#btnAddCustomer").prop("disabled", false);
 
         } else {
             $("#txtCustomerName").css('border', '2px solid red');
             $("#errorName").text("Wrong format : Type Your Name");
-            $("#btnAddCustomer").prop("disabled",true);
+            $("#btnAddCustomer").prop("disabled", true);
 
         }
     });
@@ -534,12 +474,12 @@ $("#custTable>tr").click(function(){
         if (regExCusAddress.test(input)) {
             $("#txtCustomerAddress").css('border', '2px solid green');
             $("#errorAddress").text("");
-            $("#btnAddCustomer").prop("disabled",false);
+            $("#btnAddCustomer").prop("disabled", false);
 
         } else {
             $("#txtCustomerAddress").css('border', '2px solid red');
             $("#errorAddress").text("Wrong format : Type Your Address");
-            $("#btnAddCustomer").prop("disabled",true);
+            $("#btnAddCustomer").prop("disabled", true);
 
         }
     });
@@ -551,271 +491,303 @@ $("#custTable>tr").click(function(){
         if (regExCusPhoneNo.test(input)) {
             $("#txtCustomerTP").css('border', '2px solid green');
             $("#errorTp").text("");
-            $("#btnAddCustomer").prop("disabled",false);
+            $("#btnAddCustomer").prop("disabled", false);
 
         } else {
             $("#txtCustomerTP").css('border', '2px solid red');
             $("#errorTp").text("Wrong format : Type Your Phone No");
-            $("#btnAddCustomer").prop("disabled",true);
+            $("#btnAddCustomer").prop("disabled", true);
 
         }
     });
 
-   
-   
-    $("#btnUpdateCustomer").click(function(){
+    function saveCustomer() {
+        $("#btnAddCustomer").click(function () {
 
-    //     $("#custTable>tr").click(function(){
-    //     let cusID = $(this).children(":eq(0)").text(); 
-    //     let cusName = $(this).children(":eq(1)").text();
-    //     let cusAddress = $(this).children(":eq(2)").text();
-    //     let cusTP = $(this).children(":eq(3)").text();
+            $("#custTable>tr").off("click");
 
-    //     $("#txtCustomerId").val(cusID);
-    //     $("#txtCustomerName").val(cusName);
-    //     $("#txtCustomerAddress").val(cusAddress);
-    //     $("#txtCustomerTP").val(cusTP);
+            let custId = $("#txtCustomerId").val();
+            let custName = $("#txtCustomerName").val();
+            let custAddress = $("#txtCustomerAddress").val();
+            let custTP = $("#txtCustomerTP").val();
 
-    // });
+            var customerObject={
+                id:custId,
+                name:custName,
+                address:custAddress,
+                tp:custTP
+            };
+            customerDB.push(customerObject);
+            $('#custTable').empty();
+            for (var i of customerDB){
+                let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.address}</td><td>${i.tp}</td></tr>`;
+                $("#custTable").append(row);
 
-        var newCusId=$("#txtCustomerId").val();
-        var newCusName=$("#txtCustomerName").val();
-        var newCusAddress=$("#txtCustomerAddress").val();
-        var newCusTp=$("#txtCustomerTP").val();
+            }
 
-        // alert("Do You Want To Update This Customer..? ")
+            $("#custTable>tr").click(function () {
+                let cusID = $(this).children(":eq(0)").text();
+                let cusName = $(this).children(":eq(1)").text();
+                let cusAddress = $(this).children(":eq(2)").text();
+                let cusTP = $(this).children(":eq(3)").text();
 
-        if (confirm ("Do You Want To Update This Customer..? ")) {
-        
-             $("td:eq(0)").text(newCusId); 
-             $("td:eq(1)").text(newCusName);
-             $("td:eq(2)").text(newCusAddress);
-             $("td:eq(3)").text(newCusTp);
+                $("#txtCustomerId").val(cusID);
+                $("#txtCustomerName").val(cusName);
+                $("#txtCustomerAddress").val(cusAddress);
+                $("#txtCustomerTP").val(cusTP);
 
-             alert("Update Customer Successfully.!");
-        
+            });
+
+
+        });
+    }
+
+    $("#btnUpdateCustomer").click(function () {
+        updateCustomer();
+    });
+
+    function updateCustomer() {
+        $("#btnUpdateCustomer").click(function () {
+
+            var newCusId = $("#txtCustomerId").val();
+            var newCusName = $("#txtCustomerName").val();
+            var newCusAddress = $("#txtCustomerAddress").val();
+            var newCusTp = $("#txtCustomerTP").val();
+
+
+            if (confirm("Do You Want To Update This Customer..? ")) {
+
+
+                $("td:eq(0)").text(newCusId);
+                $("td:eq(1)").text(newCusName);
+                $("td:eq(2)").text(newCusAddress);
+                $("td:eq(3)").text(newCusTp);
+
+
+                alert("Update Customer Successfully.!");
+
+            } else {
+                alert("Cancel Customer Update !");
+            }
+
+
+        });
+    }
+
+
+    $('#btnSearch').click(function () {
+       var searchID=$('#txtCustomerSearchId').val();
+       var response= searchCustomer(searchID);
+       if (response){
+           $('#txtCustomerId').val(response.id);
+           $('#txtCustomerName').val(response.name);
+           $('#txtCustomerAddress').val(response.address);
+           $('#txtCustomerTP').val(response.tp);
+
+       }else {
+           alert('No such a Customer');
+       }
+
+
+    })
+
+    function searchCustomer(id){
+        for (let i = 0; i < customerDB.length; i++) {
+            if (customerDB[i].id==id){
+                return customerDB[i];
+            }
+        }
+    }
+
+    $("#txtItemCode").keydown(function (event) {
+        if (event.key == "Enter") {
+            $("#txtItemName").focus();
+
+        }
+    });
+    $("#txtItemName").keydown(function (event) {
+        if (event.key == "Enter") {
+            $("#txtItemPrice").focus();
+
+        }
+    });
+    $("#txtItemPrice").keydown(function (event) {
+        if (event.key == "Enter") {
+            $("#txtItemQty").focus();
+
+        }
+    });
+    $("#txtItemQty").keydown(function (event) {
+        if (event.key == "Enter") {
+            saveItem();
+
+        }
+
+    });
+
+    var regExItemCode = /^(I00-)[0-9]{3,4}$/;
+
+    $("#txtItemCode").keyup(function () {
+        let input = $("#txtItemCode").val();
+        if (regExItemCode.test(input)) {
+            $("#txtItemCode").css('border', '2px solid green');
+            $("#errorCode").text("");
+            $("#btnAddItem").prop("disabled", false);
+
         } else {
-            alert("Cancell Customer Update !");
-         }
+            $("#txtItemCode").css('border', '2px solid red');
+            $("#errorCode").text("Wrong format : I00-001");
+            $("#btnAddItem").prop("disabled", true);
 
-     
-        
-        
+        }
     });
-    
-    
 
-// $("#btnAddCustomer").click(function(){
+    var regExItemName = /^[a-zA-Z ]+$/;
 
-//     $("#custTable>tr").off("click");
+    $("#txtItemName").keyup(function () {
+        let input = $("#txtItemName").val();
+        if (regExItemName.test(input)) {
+            $("#txtItemName").css('border', '2px solid green');
+            $("#errorItemName").text("");
+            $("#btnAddItem").prop("disabled", false);
 
-//    let custId = $("#txtCustomerId").val();
-//    let custName = $("#txtCustomerName").val();
-//    let custAddress = $("#txtCustomerAddress").val();
-//    let custTP = $("#txtCustomerTP").val();
+        } else {
+            $("#txtItemName").css('border', '2px solid red');
+            $("#errorItemName").text("Wrong format : Type Item Name");
+            $("#btnAddItem").prop("disabled", true);
 
-//    let row = `<tr><td>${custId}</td><td>${custName}</td><td>${custAddress}</td><td>${custTP}</td></tr>`;
-//    $("#custTable").append(row);
-
-//     $("#custTable>tr").click(function(){
-//         let cusID = $(this).children(":eq(0)").text(); 
-//         let cusName = $(this).children(":eq(1)").text();
-//         let cusAddress = $(this).children(":eq(2)").text();
-//         let cusTP = $(this).children(":eq(3)").text();
-
-//             $("#txtCustomerId").val(cusID);
-//             $("#txtCustomerName").val(cusName);
-//             $("#txtCustomerAddress").val(cusAddress);
-//             $("#txtCustomerTP").val(cusTP);
-
-//     });
-
-
-// });
-
-
-
-// $("#btnAddItem").click(function(){
-
-//     $("#itemTable>tr").off("click");
-
-//    let itemId = $("#txtItemCode").val();
-//    let itemName = $("#txtItemName").val();
-//    let itemPrice = $("#txtItemPrice").val();
-//    let itemQty = $("#txtItemQty").val();
-
-//    let row = `<tr><td>${itemId}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQty}</td></tr>`;
-//    $("#itemTable").append(row);
-
-
-
-//    $("#itemTable>tr").click(function(){
-//         let itemsId = $(this).children(":eq(0)").text(); 
-//         let itemsName = $(this).children(":eq(1)").text();
-//         let itemsPrice = $(this).children(":eq(2)").text();
-//         let itemsQty = $(this).children(":eq(3)").text();
-
-//             $("#txtItemCode").val(itemsId);
-//             $("#txtItemName").val(itemsName);
-//             $("#txtItemPrice").val(itemsPrice);
-//             $("#txtItemQty").val(itemsQty);
-
-//     });
-
-// });
- $("#txtItemCode").keydown(function(event){
-    if(event.key == "Enter"){
-        $("#txtItemName").focus();
-      
-    }
+        }
     });
- $("#txtItemName").keydown(function(event){
-    if(event.key == "Enter"){
-        $("#txtItemPrice").focus();
-      
-    }
+
+    var regExItemPrice = /^\d{0,8}(\.\d{1,2})?$/;
+
+    $("#txtItemPrice").keyup(function () {
+        let input = $("#txtItemPrice").val();
+        if (regExItemPrice.test(input)) {
+            $("#txtItemPrice").css('border', '2px solid green');
+            $("#errorPrice").text("");
+            $("#btnAddItem").prop("disabled", false);
+
+        } else {
+            $("#txtItemPrice").css('border', '2px solid red');
+            $("#errorPrice").text("Wrong format : Type Item Price");
+            $("#btnAddItem").prop("disabled", true);
+
+        }
     });
- $("#txtItemPrice").keydown(function(event){
-    if(event.key == "Enter"){
-        $("#txtItemQty").focus();
-       
-    }
+
+    var regExItemQty = /^\d{0,8}(\.\d{1,3})?$/;
+
+    $("#txtItemQty").keyup(function () {
+        let input = $("#txtItemQty").val();
+        if (regExItemQty.test(input)) {
+            $("#txtItemQty").css('border', '2px solid green');
+            $("#errorQty").text("");
+            $("#btnAddItem").prop("disabled", false);
+
+        } else {
+            $("#txtItemQty").css('border', '2px solid red');
+            $("#errorQty").text("Wrong format : Type Item Qty");
+            $("#btnAddItem").prop("disabled", true);
+
+        }
     });
- $("#txtItemQty").keydown(function(event){
-    if(event.key == "Enter"){
-        // $("#txtCustomerName").focus();
 
-        $("#btnAddItem").click(function(){
+    function saveItem() {
+        $("#btnAddItem").click(function () {
 
-        $("#itemTable>tr").off("click");
+            $("#itemTable>tr").off("click");
 
-        let itemId = $("#txtItemCode").val();
-        let itemName = $("#txtItemName").val();
-        let itemPrice = $("#txtItemPrice").val();
-        let itemQty = $("#txtItemQty").val();
+            let itemCode = $("#txtItemCode").val();
+            let itemName = $("#txtItemName").val();
+            let itemPrice = $("#txtItemPrice").val();
+            let itemQty = $("#txtItemQty").val();
 
-        let row = `<tr><td>${itemId}</td><td>${itemName}</td><td>${itemPrice}</td><td>${itemQty}</td></tr>`;
-        $("#itemTable").append(row);
+            var itemObject={
+                code:itemCode,
+                name:itemName,
+                price:itemPrice,
+                qty:itemQty
+            };
+            itemDB.push(itemObject);
+            $('#itemTable').empty();
+            for (var i of itemDB) {
+                let row = `<tr><td>${i.code}</td><td>${i.name}</td><td>${i.price}</td><td>${i.qty}</td></tr>`;
+                $("#itemTable").append(row);
+
+            }
 
 
 
-        $("#itemTable>tr").click(function(){
-            let itemsId = $(this).children(":eq(0)").text(); 
-            let itemsName = $(this).children(":eq(1)").text();
-            let itemsPrice = $(this).children(":eq(2)").text();
-            let itemsQty = $(this).children(":eq(3)").text();
+            $("#itemTable>tr").click(function () {
+                let itemsId = $(this).children(":eq(0)").text();
+                let itemsName = $(this).children(":eq(1)").text();
+                let itemsPrice = $(this).children(":eq(2)").text();
+                let itemsQty = $(this).children(":eq(3)").text();
 
                 $("#txtItemCode").val(itemsId);
                 $("#txtItemName").val(itemsName);
                 $("#txtItemPrice").val(itemsPrice);
                 $("#txtItemQty").val(itemsQty);
 
-        });
+            });
 
         });
-          
     }
-    
+
+    $("#btnUpdateItem").click(function () {
+        updateItem();
     });
 
-    var regExItemCode = /^(I00-)[0-9]{3,4}$/;
+    function updateItem() {
+        $("#btnUpdateItem").click(function () {
 
-$("#txtItemCode").keyup(function () {
-    let input = $("#txtItemCode").val();
-    if (regExItemCode.test(input)) {
-        $("#txtItemCode").css('border', '2px solid green');
-        $("#errorCode").text("");
-        $("#btnAddItem").prop("disabled",false);
+            var newItemCode = $("#txtItemCode").val();
+            var newItemName = $("#txtItemName").val();
+            var newItemPrice = $("#txtItemPrice").val();
+            var newItemQty = $("#txtItemQty").val();
 
-    } else {
-        $("#txtItemCode").css('border', '2px solid red');
-        $("#errorCode").text("Wrong format : I00-001");
-        $("#btnAddItem").prop("disabled",true);
 
-    }
-});
+            if (confirm("Do You Want To Update This Item..?")) {
 
-var regExItemName = /^[a-zA-Z ]+$/;
+                $("td:eq(0)").text(newItemCode);
+                $("td:eq(1)").text(newItemName);
+                $("td:eq(2)").text(newItemPrice);
+                $("td:eq(3)").text(newItemQty);
 
-$("#txtItemName").keyup(function () {
-    let input = $("#txtItemName").val();
-    if (regExItemName.test(input)) {
-        $("#txtItemName").css('border', '2px solid green');
-        $("#errorItemName").text("");
-        $("#btnAddItem").prop("disabled",false);
+                alert("Update Item Successfully.!");
 
-    } else {
-        $("#txtItemName").css('border', '2px solid red');
-        $("#errorItemName").text("Wrong format : Type Item Name");
-        $("#btnAddItem").prop("disabled",true);
+            } else {
+                alert("Cancel Item Update !");
+
+            }
+
+
+        });
 
     }
-});
 
-var regExItemPrice = /^\d{0,8}(\.\d{1,2})?$/;
-
-$("#txtItemPrice").keyup(function () {
-    let input = $("#txtItemPrice").val();
-    if (regExItemPrice.test(input)) {
-        $("#txtItemPrice").css('border', '2px solid green');
-        $("#errorPrice").text("");
-        $("#btnAddItem").prop("disabled",false);
-
-    } else {
-        $("#txtItemPrice").css('border', '2px solid red');
-        $("#errorPrice").text("Wrong format : Type Item Name");
-        $("#btnAddItem").prop("disabled",true);
-
+    function searchItem(code) {
+        for (let i = 0; i < itemDB.length; i++) {
+            if (itemDB[i].code==code){
+                return itemDB[i];
+            }
+        }
     }
-});
 
-var regExItemQty = /^\d{0,8}(\.\d{1,3})?$/;
+    $('#btnSearchItem').click(function () {
+        var searchCode=$('#txtSearchItem').val();
 
-$("#txtItemQty").keyup(function () {
-    let input = $("#txtItemQty").val();
-    if (regExItemPrice.test(input)) {
-        $("#txtItemQty").css('border', '2px solid green');
-        $("#errorQty").text("");
-        $("#btnAddItem").prop("disabled",false);
-
-    } else {
-        $("#txtItemQty").css('border', '2px solid red');
-        $("#errorQty").text("Wrong format : Type Item Name");
-        $("#btnAddItem").prop("disabled",true);
-
-    }
-});
-
-$("#btnUpdateItem").click(function(){
-
-var newItemCode=$("#txtItemCode").val();
-var newItemName=$("#txtItemName").val();
-var newItemPrice=$("#txtItemPrice").val();
-var newItemQty=$("#txtItemQty").val();
+        var response=searchItem(searchCode);
+        if (response){
+            $('#txtItemCode').val(response.code);
+            $('#txtItemName').val(response.name);
+            $('#txtItemPrice').val(response.price);
+            $('#txtItemQty').val(response.qty);
+        }
+    })
 
 
-
-// alert("Do You Want To Update This Item..? ");
-
-
-if (confirm("Do You Want To Update This Item..?")) {
-
-    $("td:eq(0)").text(newItemCode); 
-    $("td:eq(1)").text(newItemName);
-    $("td:eq(2)").text(newItemPrice);
-    $("td:eq(3)").text(newItemQty);
-
-    alert("Update Item Successfully.!");
-
-  } else {
-    alert("Cancel Item Update !");
-
-  }
-
-
-});
-
-  
 </script>
 </body>
 </html>
