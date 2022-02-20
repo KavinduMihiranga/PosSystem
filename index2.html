@@ -246,24 +246,24 @@
         <form class="row g-3 col-4">
             <label class="shadow bg-info">Invoice Detail</label>
             <div class="col-md-6">
-                <label class="form-label" for="orderId">Order Id:</label>
-                <input class="form-control" id="orderId" type="text">
+                <label class="form-label" for="txtOrderId">Order Id:</label>
+                <input class="form-control" id="txtOrderId" type="text">
             </div>
             <div class="col-md-6">
-                <label class="form-label" for="date">Date</label>
-                <input class="form-control" id="date" name="date" type="date">
+                <label class="form-label" for="txtOrderDate">Date</label>
+                <input class="form-control" id="txtOrderDate" name="date" type="date">
             </div>
             <div class="col-md-6">
-                <label class="form-label" for="customerOrderName">Customer Name</label>
-                <input class="form-control" id="customerOrderName" type="text">
+                <label class="form-label" for="txtOrderCustomer">Customer Name</label>
+                <input class="form-control" id="txtOrderCustomer" type="text">
             </div>
             <div class="col-md-6">
-                <label class="form-label" for="customerOrderId">Customer Id</label>
-                <input class="form-control" id="customerOrderId" type="text">
+                <label class="form-label" for="txtOrderCustomerId">Customer Id</label>
+                <input class="form-control" id="txtOrderCustomerId" type="text">
             </div>
             <div class="col-12">
-                <label class="form-label" for="inputAddress">Address</label>
-                <input class="form-control" id="inputAddress" placeholder="1234 Main St" type="text">
+                <label class="form-label" for="txtOrderCustomerAddress">Address</label>
+                <input class="form-control" id="txtOrderCustomerAddress" placeholder="1234 Main St" type="text">
             </div>
         </form>
 
@@ -272,44 +272,44 @@
         <form class="row g-3 col-4 mx-5 ">
             <label class="shadow bg-info">Item Select</label>
             <div class="col-md-6">
-                <label class="form-label" for="itemCodes">Item Code:</label>
-                <input class="form-control" id="itemCodes" type="text">
+                <label class="form-label" for="txtOrderItemCodes">Item Code:</label>
+                <input class="form-control" id="txtOrderItemCodes" type="text">
             </div>
             <div class="col-md-6">
-                <label class="form-label" for="itemSellName">Item Name</label>
-                <input class="form-control" id="itemSellName" type="text">
+                <label class="form-label" for="txtOrderItemSellName">Item Name</label>
+                <input class="form-control" id="txtOrderItemSellName" type="text">
             </div>
             <div class="col-md-6">
-                <label class="form-label" for="orderQuantity">Order Quantity</label>
-                <input class="form-control" id="orderQuantity" type="text">
+                <label class="form-label" for="txtOrderQuantity">Order Quantity</label>
+                <input class="form-control" id="txtOrderQuantity" type="text">
             </div>
             <div class="col-md-6">
-                <label class="form-label" for="quantityOnHand">Quantity On Hand</label>
-                <input class="form-control" id="quantityOnHand" type="text">
+                <label class="form-label" for="txtQuantityOnHand">Quantity On Hand</label>
+                <input class="form-control" id="txtQuantityOnHand" type="text">
             </div>
             <div class="col-md-6">
-                <label class="form-label" for="itemSellPrice">Item Price</label>
-                <input class="form-control" id="itemSellPrice" type="text">
+                <label class="form-label" for="txtItemSellPrice">Item Price</label>
+                <input class="form-control" id="txtItemSellPrice" type="text">
             </div>
             <div class="col-md-6">
-                <label class="form-label" for="itemSellDiscount">Item Discount</label>
-                <input class="form-control" id="itemSellDiscount" type="text">
+                <label class="form-label" for="txtItemSellDiscount">Item Discount</label>
+                <input class="form-control" id="txtItemSellDiscount" type="text">
             </div>
             <div class="col-6 mt-5">
-                <button class="btn btn-outline-secondary" id="button_add_item" type="button">Add</button>
+                <button class="btn btn-outline-secondary" id="btnOrderAddItem" type="button">Add Item</button>
             </div>
         </form>
 
         <form action="" class="row g-3 col-3">
             <div class="col-md-12">
                 <label class="col-form-label-lg text-info mx-3">Total Price: </label>
-                <label class="text-success">10500</label>
+                <label class="text-success" id="lblTotalPrice">10500</label>
                 <label class="col-form-label-lg text-info mx-3">Sub Total Price: </label>
-                <label class="text-success">10500</label>
+                <label class="text-success" id="lblSubTotalPrice">10500</label>
                 <label class="col-form-label-lg text-info mx-3">Total Discount: </label>
-                <label class="text-success">500</label>
+                <label class="text-success" id="lblTotalDiscount">500</label>
                 <label class="col-form-label-lg text-info mx-3">Total Qty: </label>
-                <label class="text-success">50</label>
+                <label class="text-success" id="lblTotalQty">50</label>
 
                 <div class="col-6 mt-5">
                     <button class="btn btn-outline-success" id="buttonAddOrder" type="button">AddOrder</button>
@@ -330,30 +330,7 @@
             <th scope="col">Total</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-        </tr>
+        <tbody id="orderTable">
         </tbody>
     </table>
 
@@ -374,463 +351,5 @@
 <script src="model/OrderDetail.js"></script>
 <script src="model/Orders.js"></script>
 
-
-<script>
-    // $("#homeContent").css("display", "block");
-    // $("#customerContent").css("display", "none");
-    // $("#itemContent").css("display", "none");
-    // $("#orderContent").css("display", "none");
-    //
-    //
-    // $("#linkCustomer").click(function () {
-    //     $("#customerContent").css("display", "block");
-    //     $("#homeContent").css("display", "none");
-    //     $("#itemContent").css("display", "none");
-    //     $("#orderContent").css("display", "none");
-    //
-    //
-    // });
-    //
-    // $("#linkItem").click(function () {
-    //     $("#itemContent").css("display", "block");
-    //     $("#customerContent").css("display", "none");
-    //     $("#homeContent").css("display", "none");
-    //     $("#orderContent").css("display", "none");
-    //
-    //
-    // });
-    //
-    // $("#linkOrder").click(function () {
-    //     $("#orderContent").css("display", "block");
-    //     $("#customerContent").css("display", "none");
-    //     $("#homeContent").css("display", "none");
-    //     $("#itemContent").css("display", "none");
-    //
-    //
-    // });
-    //
-    //
-    // $("#linkHome").click(function () {
-    //     $("#homeContent").css("display", "block");
-    //     $("#itemContent").css("display", "none");
-    //     $("#customerContent").css("display", "none");
-    //     $("#orderContent").css("display", "none");
-    //
-    // });
-
-    // $("#txtCustomerId").keydown(function (event) {
-    //     if (event.key == "Enter") {
-    //         $("#txtCustomerName").focus();
-    //
-    //     }
-    // });
-    // $("#txtCustomerName").keydown(function (event) {
-    //     if (event.key == "Enter") {
-    //         $("#txtCustomerAddress").focus();
-    //
-    //     }
-    // });
-    // $("#txtCustomerAddress").keydown(function (event) {
-    //     if (event.key == "Enter") {
-    //         $("#txtCustomerTP").focus();
-    //
-    //     }
-    // });
-    // $("#txtCustomerTP").keydown(function (event) {
-    //     if (event.key == "Enter") {
-    //
-    //         saveCustomer();
-    //
-    //
-    //     }
-    //
-    //
-    // });
-
-    // var regExCusID = /^(C00-)[0-9]{3,4}$/;
-    //
-    // $("#txtCustomerId").keyup(function () {
-    //     let input = $("#txtCustomerId").val();
-    //     if (regExCusID.test(input)) {
-    //         $("#txtCustomerId").css('border', '2px solid green');
-    //         $("#errorId").text("");
-    //         $("#btnAddCustomer").prop("disabled", false);
-    //     } else {
-    //         $("#txtCustomerId").css('border', '2px solid red');
-    //         $("#errorId").text("Wrong format : C00-001");
-    //         $("#btnAddCustomer").prop("disabled", true);
-    //
-    //     }
-    // });
-    //
-    // var regExCusName = /^[a-zA-Z ]+$/;
-    //
-    // $("#txtCustomerName").keyup(function () {
-    //     let input = $("#txtCustomerName").val();
-    //     if (regExCusName.test(input)) {
-    //         $("#txtCustomerName").css('border', '2px solid green');
-    //         $("#errorName").text("");
-    //         $("#btnAddCustomer").prop("disabled", false);
-    //
-    //     } else {
-    //         $("#txtCustomerName").css('border', '2px solid red');
-    //         $("#errorName").text("Wrong format : Type Your Name");
-    //         $("#btnAddCustomer").prop("disabled", true);
-    //
-    //     }
-    // });
-    //
-    // var regExCusAddress = /^[A-Za-z0-9'\.\-\s\,]+$/;
-    //
-    // $("#txtCustomerAddress").keyup(function () {
-    //     let input = $("#txtCustomerAddress").val();
-    //     if (regExCusAddress.test(input)) {
-    //         $("#txtCustomerAddress").css('border', '2px solid green');
-    //         $("#errorAddress").text("");
-    //         $("#btnAddCustomer").prop("disabled", false);
-    //
-    //     } else {
-    //         $("#txtCustomerAddress").css('border', '2px solid red');
-    //         $("#errorAddress").text("Wrong format : Type Your Address");
-    //         $("#btnAddCustomer").prop("disabled", true);
-    //
-    //     }
-    // });
-    //
-    // var regExCusPhoneNo = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
-    //
-    // $("#txtCustomerTP").keyup(function () {
-    //     let input = $("#txtCustomerTP").val();
-    //     if (regExCusPhoneNo.test(input)) {
-    //         $("#txtCustomerTP").css('border', '2px solid green');
-    //         $("#errorTp").text("");
-    //         $("#btnAddCustomer").prop("disabled", false);
-    //
-    //     } else {
-    //         $("#txtCustomerTP").css('border', '2px solid red');
-    //         $("#errorTp").text("Wrong format : Type Your Phone No");
-    //         $("#btnAddCustomer").prop("disabled", true);
-    //
-    //     }
-    // });
-
-    // function saveCustomer() {
-    //     $("#btnAddCustomer").click(function () {
-    //
-    //         $("#custTable>tr").off("click");
-    //
-    //         let custId = $("#txtCustomerId").val();
-    //         let custName = $("#txtCustomerName").val();
-    //         let custAddress = $("#txtCustomerAddress").val();
-    //         let custTP = $("#txtCustomerTP").val();
-    //
-    //         var customerObject={
-    //             id:custId,
-    //             name:custName,
-    //             address:custAddress,
-    //             tp:custTP
-    //         };
-    //         customerDB.push(customerObject);
-    //         $('#custTable').empty();
-    //         for (var i of customerDB){
-    //             let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.address}</td><td>${i.tp}</td></tr>`;
-    //             $("#custTable").append(row);
-    //
-    //         }
-    //
-    //         $("#custTable>tr").click(function () {
-    //             let cusID = $(this).children(":eq(0)").text();
-    //             let cusName = $(this).children(":eq(1)").text();
-    //             let cusAddress = $(this).children(":eq(2)").text();
-    //             let cusTP = $(this).children(":eq(3)").text();
-    //
-    //             $("#txtCustomerId").val(cusID);
-    //             $("#txtCustomerName").val(cusName);
-    //             $("#txtCustomerAddress").val(cusAddress);
-    //             $("#txtCustomerTP").val(cusTP);
-    //
-    //         });
-    //
-    //
-    //     });
-    // }
-
-    // $("#btnUpdateCustomer").click(function () {
-    //     updateCustomer();
-    // });
-    //
-    // function updateCustomer() {
-    //     $("#btnUpdateCustomer").click(function () {
-    //
-    //         var newCusId = $("#txtCustomerId").val();
-    //         var newCusName = $("#txtCustomerName").val();
-    //         var newCusAddress = $("#txtCustomerAddress").val();
-    //         var newCusTp = $("#txtCustomerTP").val();
-    //
-    //
-    //         if (confirm("Do You Want To Update This Customer..? ")) {
-    //
-    //
-    //             $("td:eq(0)").text(newCusId);
-    //             $("td:eq(1)").text(newCusName);
-    //             $("td:eq(2)").text(newCusAddress);
-    //             $("td:eq(3)").text(newCusTp);
-    //
-    //
-    //             alert("Update Customer Successfully.!");
-    //
-    //         } else {
-    //             alert("Cancel Customer Update !");
-    //         }
-    //
-    //
-    //     });
-    // }
-
-
-    // $('#btnSearch').click(function () {
-    //    var searchID=$('#txtCustomerSearchId').val();
-    //    var response= searchCustomer(searchID);
-    //    if (response){
-    //        $('#txtCustomerId').val(response.id);
-    //        $('#txtCustomerName').val(response.name);
-    //        $('#txtCustomerAddress').val(response.address);
-    //        $('#txtCustomerTP').val(response.tp);
-    //
-    //    }else {
-    //        alert('No such a Customer');
-    //    }
-    //
-    //
-    // })
-    //
-    // function searchCustomer(id){
-    //     for (let i = 0; i < customerDB.length; i++) {
-    //         if (customerDB[i].id==id){
-    //             return customerDB[i];
-    //         }
-    //     }
-    // }
-    // $("#btnDeleteCustomer").click(function () {
-    //     deleteCustomer();
-    // });
-    //
-    // function deleteCustomer(){
-    //     $('#btnDeleteCustomer').click(function () {
-    //        let custId=$('#txtCustomerId').val();
-    //         let deleteCustomer=searchCustomer(custId);
-    //         if (deleteCustomer){
-    //             let deleteId= $('#txtCustomerId').val(deleteCustomer.id);
-    //             let deleteName= $('#txtCustomerName').val(deleteCustomer.name);
-    //             let deleteAddress= $('#txtCustomerAddress').val(deleteCustomer.address);
-    //             let deleteTp= $('#txtCustomerTP').val(deleteCustomer.tp);
-    //
-    //             let deletedId=customerDB.find(deleteCustomer.id);
-    //             let deletedName= customerDB.find(deleteCustomer.name);
-    //             let deletedAddress=customerDB.find(deleteCustomer.address);
-    //             let deletedTp=customerDB.find(deleteCustomer.tp);
-    //
-    //             customerDB.remove(deletedId);
-    //             customerDB.remove(deletedName);
-    //             customerDB.remove(deletedAddress);
-    //             customerDB.remove(deletedTp);
-    //
-    //         }else {
-    //             alert('No Such a Customer')
-    //         }
-    //
-    //     })
-    // }
-
-    // $("#txtItemCode").keydown(function (event) {
-    //     if (event.key == "Enter") {
-    //         $("#txtItemName").focus();
-    //
-    //     }
-    // });
-    // $("#txtItemName").keydown(function (event) {
-    //     if (event.key == "Enter") {
-    //         $("#txtItemPrice").focus();
-    //
-    //     }
-    // });
-    // $("#txtItemPrice").keydown(function (event) {
-    //     if (event.key == "Enter") {
-    //         $("#txtItemQty").focus();
-    //
-    //     }
-    // });
-    // $("#txtItemQty").keydown(function (event) {
-    //     if (event.key == "Enter") {
-    //         saveItem();
-    //
-    //     }
-    //
-    // });
-
-    // var regExItemCode = /^(I00-)[0-9]{3,4}$/;
-    //
-    // $("#txtItemCode").keyup(function () {
-    //     let input = $("#txtItemCode").val();
-    //     if (regExItemCode.test(input)) {
-    //         $("#txtItemCode").css('border', '2px solid green');
-    //         $("#errorCode").text("");
-    //         $("#btnAddItem").prop("disabled", false);
-    //
-    //     } else {
-    //         $("#txtItemCode").css('border', '2px solid red');
-    //         $("#errorCode").text("Wrong format : I00-001");
-    //         $("#btnAddItem").prop("disabled", true);
-    //
-    //     }
-    // });
-    //
-    // var regExItemName = /^[a-zA-Z ]+$/;
-    //
-    // $("#txtItemName").keyup(function () {
-    //     let input = $("#txtItemName").val();
-    //     if (regExItemName.test(input)) {
-    //         $("#txtItemName").css('border', '2px solid green');
-    //         $("#errorItemName").text("");
-    //         $("#btnAddItem").prop("disabled", false);
-    //
-    //     } else {
-    //         $("#txtItemName").css('border', '2px solid red');
-    //         $("#errorItemName").text("Wrong format : Type Item Name");
-    //         $("#btnAddItem").prop("disabled", true);
-    //
-    //     }
-    // });
-    //
-    // var regExItemPrice = /^\d{0,8}(\.\d{1,2})?$/;
-    //
-    // $("#txtItemPrice").keyup(function () {
-    //     let input = $("#txtItemPrice").val();
-    //     if (regExItemPrice.test(input)) {
-    //         $("#txtItemPrice").css('border', '2px solid green');
-    //         $("#errorPrice").text("");
-    //         $("#btnAddItem").prop("disabled", false);
-    //
-    //     } else {
-    //         $("#txtItemPrice").css('border', '2px solid red');
-    //         $("#errorPrice").text("Wrong format : Type Item Price");
-    //         $("#btnAddItem").prop("disabled", true);
-    //
-    //     }
-    // });
-    //
-    // var regExItemQty = /^\d{0,8}(\.\d{1,3})?$/;
-    //
-    // $("#txtItemQty").keyup(function () {
-    //     let input = $("#txtItemQty").val();
-    //     if (regExItemQty.test(input)) {
-    //         $("#txtItemQty").css('border', '2px solid green');
-    //         $("#errorQty").text("");
-    //         $("#btnAddItem").prop("disabled", false);
-    //
-    //     } else {
-    //         $("#txtItemQty").css('border', '2px solid red');
-    //         $("#errorQty").text("Wrong format : Type Item Qty");
-    //         $("#btnAddItem").prop("disabled", true);
-    //
-    //     }
-    // });
-
-    // function saveItem() {
-    //     $("#btnAddItem").click(function () {
-    //
-    //         $("#itemTable>tr").off("click");
-    //
-    //         let itemCode = $("#txtItemCode").val();
-    //         let itemName = $("#txtItemName").val();
-    //         let itemPrice = $("#txtItemPrice").val();
-    //         let itemQty = $("#txtItemQty").val();
-    //
-    //         var itemObject={
-    //             code:itemCode,
-    //             name:itemName,
-    //             price:itemPrice,
-    //             qty:itemQty
-    //         };
-    //         itemDB.push(itemObject);
-    //         $('#itemTable').empty();
-    //         for (var i of itemDB) {
-    //             let row = `<tr><td>${i.code}</td><td>${i.name}</td><td>${i.price}</td><td>${i.qty}</td></tr>`;
-    //             $("#itemTable").append(row);
-    //
-    //         }
-    //
-    //
-    //
-    //         $("#itemTable>tr").click(function () {
-    //             let itemsId = $(this).children(":eq(0)").text();
-    //             let itemsName = $(this).children(":eq(1)").text();
-    //             let itemsPrice = $(this).children(":eq(2)").text();
-    //             let itemsQty = $(this).children(":eq(3)").text();
-    //
-    //             $("#txtItemCode").val(itemsId);
-    //             $("#txtItemName").val(itemsName);
-    //             $("#txtItemPrice").val(itemsPrice);
-    //             $("#txtItemQty").val(itemsQty);
-    //
-    //         });
-    //
-    //     });
-    // }
-
-    // $("#btnUpdateItem").click(function () {
-    //     updateItem();
-    // });
-    //
-    // function updateItem() {
-    //     $("#btnUpdateItem").click(function () {
-    //
-    //         var newItemCode = $("#txtItemCode").val();
-    //         var newItemName = $("#txtItemName").val();
-    //         var newItemPrice = $("#txtItemPrice").val();
-    //         var newItemQty = $("#txtItemQty").val();
-    //
-    //
-    //         if (confirm("Do You Want To Update This Item..?")) {
-    //
-    //             $("td:eq(0)").text(newItemCode);
-    //             $("td:eq(1)").text(newItemName);
-    //             $("td:eq(2)").text(newItemPrice);
-    //             $("td:eq(3)").text(newItemQty);
-    //
-    //             alert("Update Item Successfully.!");
-    //
-    //         } else {
-    //             alert("Cancel Item Update !");
-    //
-    //         }
-    //
-    //
-    //     });
-    //
-    // }
-
-    // function searchItem(code) {
-    //     for (let i = 0; i < itemDB.length; i++) {
-    //         if (itemDB[i].code==code){
-    //             return itemDB[i];
-    //         }
-    //     }
-    // }
-    //
-    // $('#btnSearchItem').click(function () {
-    //     var searchCode=$('#txtSearchItem').val();
-    //
-    //     var response=searchItem(searchCode);
-    //     if (response){
-    //         $('#txtItemCode').val(response.code);
-    //         $('#txtItemName').val(response.name);
-    //         $('#txtItemPrice').val(response.price);
-    //         $('#txtItemQty').val(response.qty);
-    //     }
-    // })
-
-
-</script>
 </body>
 </html>

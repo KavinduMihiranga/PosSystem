@@ -26,11 +26,11 @@ $("#txtCustomerTP").keydown(function (event) {
 });
 
 //CRUD Operation
+$("#btnAddCustomer").click(function () {
+    saveCustomer();
+});
 function saveCustomer() {
-    $("#btnAddCustomer").click(function () {
-
         $("#custTable>tr").off("click");
-
         let custId = $("#txtCustomerId").val();
         let custName = $("#txtCustomerName").val();
         let custAddress = $("#txtCustomerAddress").val();
@@ -63,8 +63,6 @@ function saveCustomer() {
 
         });
 
-
-    });
 }
 
 $("#btnUpdateCustomer").click(function () {
@@ -72,8 +70,6 @@ $("#btnUpdateCustomer").click(function () {
 });
 
 function updateCustomer() {
-    $("#btnUpdateCustomer").click(function () {
-
         var newCusId = $("#txtCustomerId").val();
         var newCusName = $("#txtCustomerName").val();
         var newCusAddress = $("#txtCustomerAddress").val();
@@ -94,9 +90,6 @@ function updateCustomer() {
         } else {
             alert("Cancel Customer Update !");
         }
-
-
-    });
 }
 
 $('#btnSearch').click(function () {
@@ -220,5 +213,11 @@ $("#txtCustomerTP").keyup(function () {
         $("#errorTp").text("Wrong format : Type Your Phone No");
         $("#btnAddCustomer").prop("disabled", true);
 
+    }
+});
+
+$('#txtCustomerId,#txtCustomerName,#txtCustomerAddress,#txtCustomerTP').on('keydown',function (eventObj) {
+    if (eventObj.key=="Tab"){
+        eventObj.preventDefault();
     }
 });

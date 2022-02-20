@@ -185,3 +185,9 @@ $("#txtItemQty").keyup(function () {
 
     }
 });
+
+$('#txtItemCode,#txtItemName,#txtItemPrice,#txtItemQty').on('keydown',function (eventObj) {
+    if (eventObj.key=="Tab"){
+        eventObj.preventDefault();
+    }
+});
