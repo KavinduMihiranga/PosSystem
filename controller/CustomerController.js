@@ -20,7 +20,6 @@ $("#txtCustomerTP").keydown(function (event) {
     if (event.key == "Enter") {
 
         saveCustomer();
-
     }
 
 });
@@ -29,40 +28,76 @@ $("#txtCustomerTP").keydown(function (event) {
 $("#btnAddCustomer").click(function () {
     saveCustomer();
 });
+
+function loadAllCustomers() {
+    $('#custTable').empty();
+    for (var i of customerDB) {
+        let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.address}</td><td>${i.tp}</td></tr>`;
+        $("#custTable").append(row);
+    }
+}
+
 function saveCustomer() {
-        $("#custTable>tr").off("click");
-        let custId = $("#txtCustomerId").val();
-        let custName = $("#txtCustomerName").val();
-        let custAddress = $("#txtCustomerAddress").val();
-        let custTP = $("#txtCustomerTP").val();
+    $("#custTable>tr").off("click");
+    let custId = $("#txtCustomerId").val();
+    let custName = $("#txtCustomerName").val();
+    let custAddress = $("#txtCustomerAddress").val();
+    let custTP = $("#txtCustomerTP").val();
 
-        var customerObject = {
-            id: custId,
-            name: custName,
-            address: custAddress,
-            tp: custTP
-        };
-        customerDB.push(customerObject);
-        $('#custTable').empty();
-        for (var i of customerDB) {
-            let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.address}</td><td>${i.tp}</td></tr>`;
-            $("#custTable").append(row);
+    if (confirm("Do You Want To Add This Customer..? ")) {
 
-        }
+        alert("Add Customer Successfully.!");
 
-        $("#custTable>tr").click(function () {
-            let cusID = $(this).children(":eq(0)").text();
-            let cusName = $(this).children(":eq(1)").text();
-            let cusAddress = $(this).children(":eq(2)").text();
-            let cusTP = $(this).children(":eq(3)").text();
+    } else {
+        alert("Cancel Customer Add !");
+    }
 
-            $("#txtCustomerId").val(cusID);
-            $("#txtCustomerName").val(cusName);
-            $("#txtCustomerAddress").val(cusAddress);
-            $("#txtCustomerTP").val(cusTP);
+    var customerObject = {
+        id: custId,
+        name: custName,
+        address: custAddress,
+        tp: custTP
+    };
 
-        });
+    // var customerId={
+    //     cId:custId
+    // }
+    //
+    // customerIdDB.push(customerId.cId);
 
+    customerDB.push(customerObject);
+
+    $('#custTable').empty();
+    for (var i of customerDB) {
+        let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.address}</td><td>${i.tp}</td></tr>`;
+        $("#custTable").append(row);
+        clearAllCustomer();
+
+    }
+
+
+    $("#custTable>tr").click(function () {
+        let cusID = $(this).children(":eq(0)").text();
+        let cusName = $(this).children(":eq(1)").text();
+        let cusAddress = $(this).children(":eq(2)").text();
+        let cusTP = $(this).children(":eq(3)").text();
+
+        $("#txtCustomerId").val(cusID);
+        $("#txtCustomerName").val(cusName);
+        $("#txtCustomerAddress").val(cusAddress);
+        $("#txtCustomerTP").val(cusTP);
+
+    });
+
+}
+
+function clearAllCustomer() {
+    $('#txtCustomerId,#txtCustomerName,#txtCustomerAddress,#txtCustomerTP').val("");
+    $('#txtCustomerId,#txtCustomerName,#txtCustomerAddress,#txtCustomerTP').css('border', '2px solid #ced4da');
+    $('#txtCustomerId').focus();
+    $("#btnAddCustomer").attr('disabled', true);
+    loadAllCustomers();
+    $("#errorId,#errorName,#errorAddress,#errorTp").text(" ");
 }
 
 $("#btnUpdateCustomer").click(function () {
@@ -70,26 +105,34 @@ $("#btnUpdateCustomer").click(function () {
 });
 
 function updateCustomer() {
-        var newCusId = $("#txtCustomerId").val();
-        var newCusName = $("#txtCustomerName").val();
-        var newCusAddress = $("#txtCustomerAddress").val();
-        var newCusTp = $("#txtCustomerTP").val();
+    var searchCustomer=$('#txtCustomerId').val();
+    var response=searchCustomer(searchCustomer);
+    if (response){
 
+    }
+    for (var i of customerDB) {
+        let row = `<tr><td>${i.id}</td><td>${i.name}</td><td>${i.address}</td><td>${i.tp}</td></tr>`;
+        $("#custTable").append(row);
+        clearAllCustomer();
+    }
 
-        if (confirm("Do You Want To Update This Customer..? ")) {
+    var newCusId = $("#txtCustomerId").val();
+    var newCusName = $("#txtCustomerName").val();
+    var newCusAddress = $("#txtCustomerAddress").val();
+    var newCusTp = $("#txtCustomerTP").val();
 
+    $("td:eq(0)").text(newCusId);
+    $("td:eq(1)").text(newCusName);
+    $("td:eq(2)").text(newCusAddress);
+    $("td:eq(3)").text(newCusTp);
 
-            $("td:eq(0)").text(newCusId);
-            $("td:eq(1)").text(newCusName);
-            $("td:eq(2)").text(newCusAddress);
-            $("td:eq(3)").text(newCusTp);
+    if (confirm("Do You Want To Update This Customer..? ")) {
 
+        alert("Update Customer Successfully.!");
 
-            alert("Update Customer Successfully.!");
-
-        } else {
-            alert("Cancel Customer Update !");
-        }
+    } else {
+        alert("Cancel Customer Update !");
+    }
 }
 
 $('#btnSearch').click(function () {
@@ -121,30 +164,31 @@ $("#btnDeleteCustomer").click(function () {
 });
 
 function deleteCustomer() {
-    $('#btnDeleteCustomer').click(function () {
-        let custId = $('#txtCustomerId').val();
-        let deleteCustomer = searchCustomer(custId);
-        if (deleteCustomer) {
-            let deleteId = $('#txtCustomerId').val(deleteCustomer.id);
-            let deleteName = $('#txtCustomerName').val(deleteCustomer.name);
-            let deleteAddress = $('#txtCustomerAddress').val(deleteCustomer.address);
-            let deleteTp = $('#txtCustomerTP').val(deleteCustomer.tp);
+    let custId = $(this).children(":eq(0)").text("");
+    let custName = $(this).children(":eq(1)").text("");
+    let custAddress = $(this).children(":eq(2)").text("");
+    let custTp = $(this).children(":eq(3)").text("");
 
-            let deletedId = customerDB.find(deleteCustomer.id);
-            let deletedName = customerDB.find(deleteCustomer.name);
-            let deletedAddress = customerDB.find(deleteCustomer.address);
-            let deletedTp = customerDB.find(deleteCustomer.tp);
+    var searchId=$('#txtCustomerId').val();
+    var res=searchCustomer(searchId);
+    if (res){
+        $('#custTable').empty();
+        for (var i of customerDB) {
+            let row = `<tr><td>${custId}</td><td>${custName}</td><td>${custAddress}</td><td>${custTp}</td></tr>`;
+            $("#custTable>tr").empty(row);
 
-            customerDB.remove(deletedId);
-            customerDB.remove(deletedName);
-            customerDB.remove(deletedAddress);
-            customerDB.remove(deletedTp);
-
-        } else {
-            alert('No Such a Customer')
         }
+    }
 
-    })
+    if (confirm("Do You Want To Delete This Customer..? ")) {
+
+        alert("Delete Customer Successfully.!");
+
+    } else {
+        alert("Delete Customer Update !");
+    }
+
+
 }
 
 //Validations
@@ -216,8 +260,8 @@ $("#txtCustomerTP").keyup(function () {
     }
 });
 
-$('#txtCustomerId,#txtCustomerName,#txtCustomerAddress,#txtCustomerTP').on('keydown',function (eventObj) {
-    if (eventObj.key=="Tab"){
+$('#txtCustomerId,#txtCustomerName,#txtCustomerAddress,#txtCustomerTP').on('keydown', function (eventObj) {
+    if (eventObj.key == "Tab") {
         eventObj.preventDefault();
     }
 });

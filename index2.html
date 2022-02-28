@@ -263,7 +263,7 @@
             </div>
             <div class="col-12">
                 <label class="form-label" for="txtOrderCustomerAddress">Address</label>
-                <input class="form-control" id="txtOrderCustomerAddress" placeholder="1234 Main St" type="text">
+                <input class="form-control" id="txtOrderCustomerAddress" type="text">
             </div>
         </form>
 
@@ -303,13 +303,23 @@
         <form action="" class="row g-3 col-3">
             <div class="col-md-12">
                 <label class="col-form-label-lg text-info mx-3">Total Price: </label>
-                <label class="text-success" id="lblTotalPrice">10500</label>
+                <!--                <label class="text-success" id="lblTotalPrice">00.00RS/=</label>-->
+                <input class="form-control" id="lblTotalPrice" type="text">
                 <label class="col-form-label-lg text-info mx-3">Sub Total Price: </label>
-                <label class="text-success" id="lblSubTotalPrice">10500</label>
+                <!--                <label class="text-success" id="lblSubTotalPrice">00.00RS/=</label>-->
+                <input class="form-control" id="lblSubTotalPrice" type="text">
                 <label class="col-form-label-lg text-info mx-3">Total Discount: </label>
-                <label class="text-success" id="lblTotalDiscount">500</label>
+                <!--                <label class="text-success" id="lblTotalDiscount">00.00RS/=</label>-->
+                <input class="form-control" id="lblTotalDiscount" type="text">
                 <label class="col-form-label-lg text-info mx-3">Total Qty: </label>
-                <label class="text-success" id="lblTotalQty">50</label>
+                <!--                <label class="text-success" id="lblTotalQty">00</label>-->
+                <input class="form-control" id="lblTotalQty" type="text">
+                <label class="col-form-label-lg text-info mx-3">Cash: </label>
+                <!--                <label class="text-success" id="lblTotalQty">00</label>-->
+                <input class="form-control" id="lblCash" type="text">
+                <label class="col-form-label-lg text-info mx-3">Balance: </label>
+                <!--                <label class="text-success" id="lblTotalQty">00</label>-->
+                <input class="form-control" id="lblBalance" type="text">
 
                 <div class="col-6 mt-5">
                     <button class="btn btn-outline-success" id="buttonAddOrder" type="button">AddOrder</button>

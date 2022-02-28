@@ -25,74 +25,121 @@ $("#txtItemQty").keydown(function (event) {
 });
 
 // CRUD
+$("#btnAddItem").click(function () {
+    saveItem();
+});
+function loadAllItems() {
+    $('#itemTable').empty();
+    for (var i of itemDB) {
+        let row = `<tr><td>${i.code}</td><td>${i.name}</td><td>${i.price}</td><td>${i.qty}</td></tr>`;
+        $("#itemTable").append(row);
+    }
+
+}
 function saveItem() {
-    $("#btnAddItem").click(function () {
+    $("#itemTable>tr").off("click");
+    let itemCode = $("#txtItemCode").val();
+    let itemName = $("#txtItemName").val();
+    let itemPrice = $("#txtItemPrice").val();
+    let itemQty = $("#txtItemQty").val();
 
-        $("#itemTable>tr").off("click");
+    if (confirm("Do You Want To Add This Item..? ")) {
 
-        let itemCode = $("#txtItemCode").val();
-        let itemName = $("#txtItemName").val();
-        let itemPrice = $("#txtItemPrice").val();
-        let itemQty = $("#txtItemQty").val();
+        alert("Add Item Successfully.!");
 
-        var itemObject = {
-            code: itemCode,
-            name: itemName,
-            price: itemPrice,
-            qty: itemQty
-        };
-        itemDB.push(itemObject);
-        $('#itemTable').empty();
-        for (var i of itemDB) {
-            let row = `<tr><td>${i.code}</td><td>${i.name}</td><td>${i.price}</td><td>${i.qty}</td></tr>`;
-            $("#itemTable").append(row);
+    } else {
+        alert("Cancel Customer Item !");
+    }
 
-        }
+    var itemObject = {
+        code: itemCode,
+        name: itemName,
+        price: itemPrice,
+        qty: itemQty
+    };
+    itemDB.push(itemObject);
+    $('#itemTable').empty();
+    for (var i of itemDB) {
+        let row = `<tr><td>${i.code}</td><td>${i.name}</td><td>${i.price}</td><td>${i.qty}</td></tr>`;
+        $("#itemTable").append(row);
+        clearAllItem();
+
+    }
 
 
-        $("#itemTable>tr").click(function () {
-            let itemsId = $(this).children(":eq(0)").text();
-            let itemsName = $(this).children(":eq(1)").text();
-            let itemsPrice = $(this).children(":eq(2)").text();
-            let itemsQty = $(this).children(":eq(3)").text();
+    $("#itemTable>tr").click(function () {
+        let itemsId = $(this).children(":eq(0)").text();
+        let itemsName = $(this).children(":eq(1)").text();
+        let itemsPrice = $(this).children(":eq(2)").text();
+        let itemsQty = $(this).children(":eq(3)").text();
 
-            $("#txtItemCode").val(itemsId);
-            $("#txtItemName").val(itemsName);
-            $("#txtItemPrice").val(itemsPrice);
-            $("#txtItemQty").val(itemsQty);
-
-        });
+        $("#txtItemCode").val(itemsId);
+        $("#txtItemName").val(itemsName);
+        $("#txtItemPrice").val(itemsPrice);
+        $("#txtItemQty").val(itemsQty);
 
     });
+
 }
+
+function clearAllItem() {
+    $('#txtItemCode,#txtItemName,#txtItemPrice,#txtItemQty').val("");
+    $('#txtItemCode,#txtItemName,#txtItemPrice,#txtItemQty').css('border', '2px solid #ced4da');
+    $('#txtItemCode').focus();
+    $("#btnAddItem").attr('disabled', true);
+    loadAllItems();
+    $("#errorCode,#errorItemName,#errorPrice,#errorPrice").text(" ")
+}
+
 
 $("#btnUpdateItem").click(function () {
     updateItem();
 });
 
 function updateItem() {
-    $("#btnUpdateItem").click(function () {
-
-        var newItemCode = $("#txtItemCode").val();
-        var newItemName = $("#txtItemName").val();
-        var newItemPrice = $("#txtItemPrice").val();
-        var newItemQty = $("#txtItemQty").val();
+    var newItemCode = $("#txtItemCode").val();
+    var newItemName = $("#txtItemName").val();
+    var newItemPrice = $("#txtItemPrice").val();
+    var newItemQty = $("#txtItemQty").val();
 
 
-        if (confirm("Do You Want To Update This Item..?")) {
+    if (confirm("Do You Want To Update This Item..?")) {
 
-            $("td:eq(0)").text(newItemCode);
-            $("td:eq(1)").text(newItemName);
-            $("td:eq(2)").text(newItemPrice);
-            $("td:eq(3)").text(newItemQty);
+        $("td:eq(0)").text(newItemCode);
+        $("td:eq(1)").text(newItemName);
+        $("td:eq(2)").text(newItemPrice);
+        $("td:eq(3)").text(newItemQty);
 
-            alert("Update Item Successfully.!");
+        alert("Update Item Successfully.!");
 
-        } else {
-            alert("Cancel Item Update !");
+    } else {
+        alert("Cancel Item Update !");
 
-        }
-    });
+    }
+}
+$("#btnDeleteItem").click(function () {
+    deleteItem();
+});
+function deleteItem() {
+    // var delItemCode = $("#txtItemCode").val("");
+    // var delItemName = $("#txtItemName").val("");
+    // var delItemPrice = $("#txtItemPrice").val("");
+    // var delItemQty = $("#txtItemQty").val("");
+
+
+    if (confirm("Do You Want To Update This Item..?")) {
+
+        $("td:eq(0)").remove();
+        $("td:eq(1)").remove();
+        $("td:eq(2)").remove();
+        $("td:eq(3)").remove();
+
+        alert("Delete Item Successfully.!");
+
+    } else {
+        alert("Cancel Item Delete !");
+
+    }
 
 }
 
@@ -186,8 +233,8 @@ $("#txtItemQty").keyup(function () {
     }
 });
 
-$('#txtItemCode,#txtItemName,#txtItemPrice,#txtItemQty').on('keydown',function (eventObj) {
-    if (eventObj.key=="Tab"){
+$('#txtItemCode,#txtItemName,#txtItemPrice,#txtItemQty').on('keydown', function (eventObj) {
+    if (eventObj.key == "Tab") {
         eventObj.preventDefault();
     }
 });

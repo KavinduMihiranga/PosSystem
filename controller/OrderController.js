@@ -1,3 +1,4 @@
+disableLbl();
 $('#txtOrderId').keydown(function (event) {
     if (event.key == "Enter") {
         $('#txtOrderDate').focus();
@@ -64,7 +65,7 @@ $('#txtItemSellDiscount').keydown(function (event) {
 
 
 $('#btnOrderAddItem').click(function () {
-    saveOrderItem()
+    saveOrderItem();
 })
 
 function saveOrderItem() {
@@ -78,18 +79,54 @@ function saveOrderItem() {
     let orderItemSellPrice = $('#txtItemSellPrice').val();
     let orderItemSellDiscount = $('#txtItemSellDiscount').val();
 
+    let totalPrice = (orderItemSellPrice - orderItemSellDiscount) * orderQuantity;
+
 
     // $('#orderTable').empty();
 
-    let row = `<tr><td>${orderItemCodes}</td><td>${orderItemSellName}</td><td>${orderQuantity}</td><td>${orderQuantityOnHand}</td><td>${orderItemSellPrice}</td><td>${orderItemSellDiscount}</td></tr>`;
-    $("#orderTable").append(row);
+    let orderDetailObject = {
+
+        oItemCodes: orderItemCodes,
+        oItemSellName: orderItemSellName,
+        oQuantity: orderQuantity,
+        oQuantityOnHand: orderQuantityOnHand,
+        oItemSellPrice: orderItemSellPrice,
+        oItemSellDiscount: orderItemSellDiscount,
+        oTotalPrice: totalPrice
+    };
+    orderDetailDB.push(orderDetailObject);
+    $('#orderTable').empty();
+    for (var i of orderDetailDB) {
+        let row = `<tr><td>${i.oItemCodes}</td><td>${i.oItemSellName}</td><td>${i.oItemSellPrice}</td><td>${i.oItemSellDiscount}</td><td>${i.oQuantity}</td><td>${i.oTotalPrice}</td></tr>`;
+        $("#orderTable").append(row);
+        $('#lblSubTotalPrice').val(totalPrice);
+    }
+
+
+    let totalPrices = (orderDetailObject.oItemSellPrice - orderDetailObject.oItemSellDiscount) * orderDetailObject.oQuantity;
+    let totalDiscount = (orderDetailObject.oItemSellDiscount * orderDetailObject.oQuantity);
+    let totalQty = (orderDetailObject.oQuantity)
+
+
+    $('#lblTotalPrice').val(totalPrices);
+    $('#lblTotalDiscount').val(totalDiscount);
+    $('#lblTotalQty').val(totalQty);
+
 
 
 }
 
 
 $('#buttonAddOrder').click(function () {
+    if (confirm("Do You Want To Add This Order..? ")) {
+
+        alert("Add Order Successfully.!");
+
+    } else {
+        alert("Cancel Add Order !");
+    }
     saveOrder();
+    clearAll();
 });
 
 function saveOrder() {
@@ -126,10 +163,16 @@ function saveOrder() {
 
     };
     orderDB.push(orderObject);
+    //
+    // let totalPrice = (orderObject.orderItemSellPrice - orderObject.orderItemSellDiscount) * orderObject.orderQuantity;
+    // let totalDiscount = (orderObject.orderItemSellDiscount * orderObject.orderQuantity);
+    // let totalQty = (orderObject.orderQuantity)
+    //
+    // $('#lblTotalPrice').val(totalPrice);
+    // $('#lblTotalDiscount').val(totalDiscount);
+    // $('#lblTotalQty').val(totalQty);
 
-    $('#lblSubTotalPrice').val(orderItemSellPrice);
-    $('#tblTotalQty').val(orderQuantity);
-
+    $('#orderTable').remove();
 }
 
 function searchOrderCustomer(id) {
@@ -172,3 +215,35 @@ $('#txtOrderItemCodes').keydown(function () {
     }
 
 });
+
+function clearAll() {
+    $('#txtOrderId,#txtOrderCustomerId,#txtOrderCustomer,#txtOrderCustomerAddress,#txtOrderItemCodes,#txtOrderItemSellName,#txtQuantityOnHand,#txtOrderQuantity,#txtItemSellPrice,#txtItemSellDiscount,#lblTotalQty,#lblTotalPrice,#lblTotalDiscount,#lblSubTotalPrice,#lblBalance,#lblCash').val("");
+    $('#txtOrderId,#txtOrderCustomerId,#txtOrderCustomer,#txtOrderCustomerAddress,#txtOrderItemCodes,#txtOrderItemSellName,#txtQuantityOnHand,#txtOrderQuantity,#txtItemSellPrice,#txtItemSellDiscount,#lblTotalQty,#lblTotalPrice,#lblTotalDiscount,#lblSubTotalPrice,#lblBalance,#lblCash').css('border', '2px solid #ced4da');
+    $('#txtOrderId').focus();
+    // $("#buttonAddOrder").attr('disabled', true);
+
+}
+
+$('#lblCash').keyup(function () {
+    $('#lblBalance').prop('disabled',false);
+    setBalance();
+    $('#lblBalance').prop('disabled',true);
+});
+
+function setBalance() {
+    let total = $('#lblTotalPrice').val();
+    let cash = $('#lblCash').val();
+
+        if (total < cash) {
+            $('#lblBalance').val($('#lblCash').val()-$('#lblTotalPrice').val());
+        }
+    $('#buttonAddOrder').prop('disable', true)
+}
+
+function disableLbl() {
+    $('#lblTotalPrice').prop('disabled',true);
+    $('#lblTotalDiscount').prop('disabled',true);
+    $('#lblSubTotalPrice').prop('disabled',true);
+    $('#lblTotalQty').prop('disabled',true);
+
+}
