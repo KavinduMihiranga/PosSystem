@@ -25,7 +25,7 @@ $("#txtCustomerTP").keydown(function (event) {
 });
 
 //CRUD Operation
-$("#btnAddCustomer").click(function () {
+$("#btnAddCustomer").dblclick(function () {
     saveCustomer();
 });
 
@@ -164,28 +164,30 @@ $("#btnDeleteCustomer").click(function () {
 });
 
 function deleteCustomer() {
-    let custId = $(this).children(":eq(0)").text("");
-    let custName = $(this).children(":eq(1)").text("");
-    let custAddress = $(this).children(":eq(2)").text("");
-    let custTp = $(this).children(":eq(3)").text("");
-
-    var searchId=$('#txtCustomerId').val();
-    var res=searchCustomer(searchId);
-    if (res){
-        $('#custTable').empty();
-        for (var i of customerDB) {
-            let row = `<tr><td>${custId}</td><td>${custName}</td><td>${custAddress}</td><td>${custTp}</td></tr>`;
-            $("#custTable>tr").empty(row);
-
-        }
-    }
+    // let custId = $(this).children(":eq(0)").text("");
+    // let custName = $(this).children(":eq(1)").text("");
+    // let custAddress = $(this).children(":eq(2)").text("");
+    // let custTp = $(this).children(":eq(3)").text("");
+    //
+    // var searchId=$('#txtCustomerId').val();
+    // var res=searchCustomer(searchId);
+    // if (res){
+    //     $('#custTable').empty();
+    //     for (var i of customerDB) {
+    //         let row = `<tr><td>${custId}</td><td>${custName}</td><td>${custAddress}</td><td>${custTp}</td></tr>`;
+    //         $("#custTable>tr").empty(row);
+    //
+    //     }
+    // }
 
     if (confirm("Do You Want To Delete This Customer..? ")) {
 
         alert("Delete Customer Successfully.!");
+        customerDB.pop();
+        $('#custTable').display(loadAllCustomers());
 
     } else {
-        alert("Delete Customer Update !");
+        alert("Cancel Delete Customer !");
     }
 
 

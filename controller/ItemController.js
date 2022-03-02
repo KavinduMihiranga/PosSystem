@@ -25,7 +25,7 @@ $("#txtItemQty").keydown(function (event) {
 });
 
 // CRUD
-$("#btnAddItem").click(function () {
+$("#btnAddItem").dblclick(function () {
     saveItem();
 });
 function loadAllItems() {
@@ -47,23 +47,23 @@ function saveItem() {
 
         alert("Add Item Successfully.!");
 
+        var itemObject = {
+            code: itemCode,
+            name: itemName,
+            price: itemPrice,
+            qty: itemQty
+        };
+        itemDB.push(itemObject);
+        $('#itemTable').empty();
+        for (var i of itemDB) {
+            let row = `<tr><td>${i.code}</td><td>${i.name}</td><td>${i.price}</td><td>${i.qty}</td></tr>`;
+            $("#itemTable").append(row);
+            clearAllItem();
+
+        }
+
     } else {
         alert("Cancel Customer Item !");
-    }
-
-    var itemObject = {
-        code: itemCode,
-        name: itemName,
-        price: itemPrice,
-        qty: itemQty
-    };
-    itemDB.push(itemObject);
-    $('#itemTable').empty();
-    for (var i of itemDB) {
-        let row = `<tr><td>${i.code}</td><td>${i.name}</td><td>${i.price}</td><td>${i.qty}</td></tr>`;
-        $("#itemTable").append(row);
-        clearAllItem();
-
     }
 
 
@@ -127,18 +127,28 @@ function deleteItem() {
     // var delItemQty = $("#txtItemQty").val("");
 
 
-    if (confirm("Do You Want To Update This Item..?")) {
+    // if (confirm("Do You Want To Update This Item..?")) {
+    //
+    //     $("td:eq(0)").remove();
+    //     $("td:eq(1)").remove();
+    //     $("td:eq(2)").remove();
+    //     $("td:eq(3)").remove();
+    //
+    //     alert("Delete Item Successfully.!");
+    //
+    // } else {
+    //     alert("Cancel Item Delete !");
+    //
+    // }
 
-        $("td:eq(0)").remove();
-        $("td:eq(1)").remove();
-        $("td:eq(2)").remove();
-        $("td:eq(3)").remove();
+    if (confirm("Do You Want To Delete This Item..? ")) {
 
         alert("Delete Item Successfully.!");
+        itemDB.pop();
+        $('#itemTable').display(loadAllItems());
 
     } else {
         alert("Cancel Item Delete !");
-
     }
 
 }

@@ -56,16 +56,48 @@ $('#txtItemSellPrice').keydown(function (event) {
 });
 $('#txtItemSellDiscount').keydown(function (event) {
     if (event.key == "Enter") {
-        saveOrderItem();
+        // saveOrderItem();
+
+        if (confirm("Do You Want To Add This Item..? ")) {
+
+            alert("Add Order Item Successfully.!");
+            saveOrderItem();
+
+        } else {
+            alert("Cancel Add Order Item !");
+        }
     }
 });
+
+$('#lblCash').keydown(function (event) {
+    if (event.key == "Enter") {
+        if (confirm("Do You Want To Add This Order..? ")) {
+
+            alert("Add Order Successfully.!");
+
+        } else {
+            alert("Cancel Add Order !");
+        }
+        saveOrder();
+        clearAll();
+    }
+});
+
 //Variable
 
 //CRUD Operation
 
 
 $('#btnOrderAddItem').click(function () {
-    saveOrderItem();
+    if (confirm("Do You Want To Add This Item..? ")) {
+
+        alert("Add Order Item Successfully.!");
+        saveOrderItem();
+
+    } else {
+        alert("Cancel Add Order Item !");
+    }
+
 })
 
 function saveOrderItem() {
@@ -172,7 +204,14 @@ function saveOrder() {
     // $('#lblTotalDiscount').val(totalDiscount);
     // $('#lblTotalQty').val(totalQty);
 
-    $('#orderTable').remove();
+
+    let totalPrice=$('#lblSubTotalPrice').val();
+    let totalCash=$('#lblCash').val();
+    if (totalPrice>totalCash){
+        $('#buttonAddOrder').prop('disable', true)
+    }else{
+        $('#orderTable').remove();
+    }
 }
 
 function searchOrderCustomer(id) {
@@ -237,7 +276,8 @@ function setBalance() {
         if (total < cash) {
             $('#lblBalance').val($('#lblCash').val()-$('#lblTotalPrice').val());
         }
-    $('#buttonAddOrder').prop('disable', true)
+            $('#buttonAddOrder').prop('disable', true)
+
 }
 
 function disableLbl() {
@@ -247,3 +287,4 @@ function disableLbl() {
     $('#lblTotalQty').prop('disabled',true);
 
 }
+
